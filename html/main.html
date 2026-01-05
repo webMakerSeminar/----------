@@ -4,105 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>教養ゼミ（１）サイト</title>
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/message.css">
-<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.10/js/imageMapResizer.min.js"></script>
-<script>
-  window.onload = function() {
-    imageMapResize();
-  };
-</script>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/message.css">
 
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.10/js/imageMapResizer.min.js"></script>
+    <script>
+      window.onload = function() {
+        imageMapResize();
+      };
+    </script>
 </head>
+
 <body>
 
-<div id = "tutorial">
-  <button id = "skip">スキップする</button>
+<div id="tutorial">
+  <button id="skip">スキップする</button>
 
-  <img id = "standImg" src="/speakImage/立ち絵男1.png" alt="">
-  <img id = "standImg2" src="/speakImage/立ち絵女2.png" alt="">
-  <div id = "message">
-    <div id = "cover"></div>
-    <img id = "took" src="/messageImage/01 1280×720px用/01_01.png" alt="">
-    <h1 id ="speak"></h1>
+  <img id="standImg" src="./speakImage/立ち絵男1.png" alt="">
+  <img id="standImg2" src="./speakImage/立ち絵女2.png" alt="">
+
+  <div id="message">
+    <div id="cover"></div>
+    <img id="took" src="./messageImage/01 1280×720px用/01_01.png" alt="">
+    <h1 id="speak"></h1>
   </div>
 </div>
 
-  <div id = "explainUI">
-  <div id ="tryUI">
-    <h1 id = "title"></h1>
-<div class = "item">
-  <img src="/img/魔法未設定.png" alt="">
-    <h3>タイトル</h3>
-  </img>
-</div>
-<div class = "item">
-  <img src="/img/魔法未設定.png" alt="">
-    <h3>タイトル</h3>
-  </img>
-</div>
-  <div class = "item">
-    <img src="/img/魔法未設定.png" alt="">
+<div id="explainUI">
+  <div id="tryUI">
+    <h1 id="title"></h1>
+
+    <div class="item">
+      <img src="./img/魔法未設定.png" alt="">
       <h3>タイトル</h3>
-    </img>
-  </div>
-  <button id = "button">教室に入る</button>
-    </div> 
-      <img id = "windowUI" src="/えちごimage/縦.png" alt="">
-  </div>
-  <div id = "count">
-  <h1 id = "countX">タイトル</h1>
-  <h1 id = "countY">タイトル</h1>
-  </div>
-
-
-  <div id = "scene">
-            <img src="/img/地図.png" alt="画像">
-        <div id = "smartPhone">
-          <button id="threeScience">三連棟</button>
-          <button id ="centerThree">中央の奴</button>
-          <button id = "leftSmall">左下の棟</button>
-          <button id = "firstScience">右上の棟</button>
-          <button id = "library">右下の棟</button>
-        </div>
     </div>
-          <img id ="character" src="/img/学生正面.png" alt="">
-    <div class = "hitBox" id = "wall1"></div>
 
-    
-  <div id = "hideWindow">
-<div class = "imageBox hiddenUI">
-  <label for="">
-    <select name="select" id="selection">
-      <option value="左上">左上</option>
-      <option value="左下">左下</option>
-      <option value="中央">中央</option>
-      <option value="右下">右下</option>
-      <option value=""></option>
-      <option value=""></option>
-      <option value=""></option>
-    </select>
-  </label>
-</div>
+    <div class="item">
+      <img src="./img/魔法未設定.png" alt="">
+      <h3>タイトル</h3>
+    </div>
 
-<div class = "imageBox hiddenUI">
-  <img id = "imageDisplay" src="/img/魔法未設定.png" alt="">
-  <h3 id = "titleDisplay">タイトル</h3>
-  </img>
-</div>
-<div class = "imageBox hiddenUI">
-  <img id = "imageDisplay" src="/img/魔法未設定.png" alt="">
-  <h3 id = "titleDisplay">タイトル</h3>
-  </img>
-</div>
-<div class = "imageBox hiddenUI">
-  <img id = "imageDisplay" src="/img/魔法未設定.png" alt="">
-  <h3 id = "titleDisplay">タイトル</h3>
-  </img>
-</div>
+    <div class="item">
+      <img src="./img/魔法未設定.png" alt="">
+      <h3>タイトル</h3>
+    </div>
+
+    <button id="button">教室に入る</button>
   </div>
-  <script src="/js/main.js"></script>
-  <script src="/js/message.js"></script>
+
+  <img id="windowUI" src="./えちごimage/縦.png" alt="">
+</div>
+
+<div id="count">
+  <h1 id="countX">タイトル</h1>
+  <h1 id="countY">タイトル</h1>
+</div>
+
+<div id="scene">
+  <img src="./img/地図.png" alt="画像">
+  <div id="smartPhone">
+    <button id="threeScience">三連棟</button>
+    <button id="centerThree">中央の奴</button>
+    <button id="leftSmall">左下の棟</button>
+    <button id="firstScience">右上の棟</button>
+    <button id="library">右下の棟</button>
+  </div>
+</div>
+
+<img id="character" src="./img/学生正面.png" alt="">
+
+<div class="hitBox" id="wall1"></div>
+
+<div id="hideWindow">
+
+  <div class="imageBox hiddenUI">
+    <label>
+      <select name="select" id="selection">
+        <option value="左上">左上</option>
+        <option value="左下">左下</option>
+        <option value="中央">中央</option>
+        <option value="右下">右下</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="imageBox hiddenUI">
+    <img id="imageDisplay" src="./img/魔法未設定.png" alt="">
+    <h3 id="titleDisplay">タイトル</h3>
+  </div>
+
+  <div class="imageBox hiddenUI">
+    <img id="imageDisplay" src="./img/魔法未設定.png" alt="">
+    <h3 id="titleDisplay">タイトル</h3>
+  </div>
+
+  <div class="imageBox hiddenUI">
+    <img id="imageDisplay" src="./img/魔法未設定.png" alt="">
+    <h3 id="titleDisplay">タイトル</h3>
+  </div>
+
+</div>
+
+<script src="./js/main.js"></script>
+<script src="./js/message.js"></script>
+
 </body>
 </html>
