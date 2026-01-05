@@ -1,5 +1,5 @@
-document.getElementById("button").addEventListener("click",function(){
-    window.location.href = "/html/main.html";
+document.getElementById("button").addEventListener("click",function(){ 
+    window.location.href = "/----------/html/main.html";
     console.log("移動");
 })
 document.getElementById("clockButton").addEventListener("click",function(){
@@ -34,7 +34,7 @@ const message = document.getElementById("message");
 const cover = document.getElementById("cover");
 
 direction.addEventListener("click",function(){
-    window.location.href = "/html/main.html";
+    window.location.href = "/----------/html/main.html";
 })
 
 cover.addEventListener("click",function(){
