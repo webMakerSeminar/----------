@@ -1,5 +1,5 @@
 document.getElementById("button").addEventListener("click",function(){ 
-    window.location.href = "/----------/html/main.html";
+    window.location.href = "----------/html/main.html";
     console.log("移動");
 })
 document.getElementById("clockButton").addEventListener("click",function(){
