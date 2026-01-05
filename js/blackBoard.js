@@ -2,8 +2,8 @@ const blackBoardPlane = localStorage.getItem("blackBoardPlane");
 const image = document.getElementById("image");
 
 const planeImage = [
-    "./えちごimage/ホワイトボード加工済み1.png",
-    "./えちごimage/黒板強化後2枠アリ強化後.png",
+    "/----------/えちごimage/ホワイトボード加工済み1.png",
+    "/----------/えちごimage/黒板強化後2枠アリ強化後.png",
 ];
 
 //画面を決定する

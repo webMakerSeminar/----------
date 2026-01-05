@@ -2,37 +2,37 @@ const storagePlane = localStorage.getItem("storagePlane");
 
 const planeImage = {
     one: [
-        "/planeImage/1号館朝.jpg",
-        "/planeImage/1号館夕方.jpg",
-        "/planeImage/1号館夜.jpg"
+        "/----------/planeImage/1号館朝.jpg",
+        "/----------/planeImage/1号館夕方.jpg",
+        "/----------/planeImage/1号館夜.jpg"
     ],
     two: [
-        "/planeImage/第二研究所朝.png",
-        "/planeImage/第二研究所夕方.png",
-        "/planeImage/第二研究所夜3.png"
+        "/----------/planeImage/第二研究所朝.png",
+        "/----------/planeImage/第二研究所夕方.png",
+        "/----------/planeImage/第二研究所夜3.png"
     ],
     three: [
-        "/えちごimage/図書館教場.jpg",
-        "/えちごimage/図書館教場4.jpg",
-        "/えちごimage/図書館教場5.jpg",
-        "/えちごimage/図書館教場6.jpg",
-        "/えちごimage/図書館教場7.jpg",
-        "/えちごimage/図書館教場8.jpg"
+        "/----------/えちごimage/図書館教場.jpg",
+        "/----------/えちごimage/図書館教場4.jpg",
+        "/----------/えちごimage/図書館教場5.jpg",
+        "/----------/えちごimage/図書館教場6.jpg",
+        "/----------/えちごimage/図書館教場7.jpg",
+        "/----------/えちごimage/図書館教場8.jpg"
     ],
     four: [
-        "/planeImage/1号館1.jpg",
-        "/planeImage/1号館2.jpg",
-        "/planeImage/1号館3.jpg",
-        "/planeImage/1号館4.jpg",
-        "/planeImage/1号館5.jpg",
-        "/planeImage/1号館6.jpg"
+        "/----------/planeImage/1号館1.jpg",
+        "/----------/planeImage/1号館2.jpg",
+        "/----------/planeImage/1号館3.jpg",
+        "/----------/planeImage/1号館4.jpg",
+        "/----------/planeImage/1号館5.jpg",
+        "/----------/planeImage/1号館6.jpg"
     ],
     five: [
-        "/えちごimage/1号館二階大教室.jpg",
-        "/えちごimage/1号館二階大教室 6.jpg",
-        "/えちごimage/1号館二階大教室 7.jpg",
-        "/えちごimage/1号館二階大教室 8.jpg",
-        "/えちごimage/1号館二階大教室 10.jpg"
+        "/----------/えちごimage/1号館二階大教室.jpg",
+        "/----------/えちごimage/1号館二階大教室 6.jpg",
+        "/----------/えちごimage/1号館二階大教室 7.jpg",
+        "/----------/えちごimage/1号館二階大教室 8.jpg",
+        "/----------/えちごimage/1号館二階大教室 10.jpg"
     ]
 };
 
@@ -132,17 +132,17 @@ const horrorImage = document.getElementById("horrorImage");
 
 button?.addEventListener("click", () => {
     checkButton();
-    location.href = "/html/blackBoard.html";
+    location.href = "/----------/html/blackBoard.html";
 });
 
 button1?.addEventListener("click", () => {
     checkButton();
-    location.href = "/html/blackBoard2.html";
+    location.href = "/----------/html/blackBoard2.html";
 });
 
 button2?.addEventListener("click", () => {
     checkButton();
-    location.href = "/html/blackBoard3.html";
+    location.href = "/----------/html/blackBoard3.html";
 });
 
 button3?.addEventListener("click", () => {
