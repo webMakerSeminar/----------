@@ -8,6 +8,15 @@ const countY = document.getElementById("countY");
 let x = 0, y = 0;
 const speed = 15;
 
+const build = [
+  { plane: "三連棟", x1: 390, y1: -15, x2: 135, y2: 105 },
+  { plane: "左下の棟", x1: 240, y1: -120, x2: 120, y2: -30 },
+  { plane: "中央の奴", x1: 75,  y1: -20, x2: -180, y2: 120 },
+  { plane: "右下の棟", x1: -75, y1: -210, x2: -315, y2: -90 },
+  { plane: "右上の棟", x1: 45, y1: 225 , x2: -135, y2: 360 },
+];
+
+
 const walkImages = {
   up:   ["/----------/img/学生背後.png"],
   down: ["/----------/img/学生正面.png"],
