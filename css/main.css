@@ -1,0 +1,189 @@
+@charset "UTF-8";
+html, body{
+    height: 100%;
+    margin: 0;
+    background-color: white;
+    overflow-x:auto;
+    overflow-y: hidden;
+}
+#smartPhone button{
+  display: none;
+}
+#scene{
+position: relative;
+z-index: 1;
+width: 100%;
+}
+#scene img{
+    width: 1270px;
+    height: 800px;
+}
+@media screen and (max-height:300px) and (orientation: landscape) {
+#scene img{
+    width: 600px;
+    height:300px;
+    overflow: hidden;
+}
+}
+/*カウントデバッグ表示*/
+#count{
+  display: none;
+  /*
+    right:0;
+    position:absolute;
+    z-index: 10000;
+    gap: 10px;
+    margin-bottom: 10px;
+  */
+  }
+#character{
+    position: absolute;
+    top: 350px;
+    left: 600px;
+    width: 50px;   
+    height: 75px;
+    z-index: 9997;
+}
+#explainUI {
+    display: none;
+}
+#tryUI{
+    position: absolute;
+    z-index: 1000;
+    left: 50px;
+    top: 40px;
+}
+#windowUI{
+    position: absolute;
+    width: 220px;
+    height: 430px;
+    z-index: 2;
+    top: 20px;
+    left: 3px;
+}
+.item{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    margin-bottom: 10px;
+}
+.item img{
+    width: 50px;
+    height: 50px;
+    z-index: 101;
+}
+#explainUI{
+  z-index: 101;
+}
+.hiddenUI{
+    display: none;
+    pointer-events: none;
+    opacity:0;
+}
+.show{
+    display: flex;
+    opacity: 1;
+}
+#imageDisplay{
+    width: 50px;
+    height: 50px;
+}
+.imageBox{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    margin-bottom: 10px;
+}
+#hideWindow{
+    z-index: 9999;
+}
+#skip{
+    position: absolute;
+    z-index: 10000;
+    width: 100px;
+    height: 50px;
+    left: 30px;
+    height: 30px;
+}
+
+/*以下、max-height:300px、スマホ用*/
+@media screen and (max-height:450px) and (orientation: landscape) {
+    #explainUI{
+        position: absolute;
+        left: 500px;
+    }
+    #smartPhone{
+    inset: 0;
+  }
+  #smartPhone button{
+    display: block;
+    position:absolute;
+    background:transparent;
+    border: 2px solid black;
+    z-index: 30000;
+    cursor:pointer;
+  }
+    #threeScience{
+    width: 120px;
+    height: 60px;
+    left: 100px;
+    top: 90px;
+  }
+  #centerThree{
+    left:250px;
+    top: 100px;
+    width: 130px;
+    height: 60px;
+  }
+  #leftSmall{
+    left:180px;
+    top:160px;
+    width: 50px;
+    height: 45px;
+  }
+  #firstScience{
+    left:270px;
+    top:20px;
+    width: 100px;
+    height: 50px;
+  }
+  #library{
+    left:320px;
+    top:180px;
+    width: 130px;
+    height: 50px;
+  }
+  #title{
+    font-size: 1em;
+  }
+  .item img{
+    width: 20px;
+    height: 20px;
+  }
+  .item h3{
+    font-size: 0.5em;
+  }
+  #tryUI button{
+    width: 70px;
+    height: 20px;
+    font-size: 0.5em;
+  }
+  #tryUI{
+    left: 20px;
+    top: 40px;
+}
+#windowUI{
+    width: 100px;
+    height: 220px;
+}
+#count{
+  display: none;
+}
+.item{
+    gap:5px;
+    margin-bottom: 3px;
+}
+#character{
+  display: none;
+}
+}

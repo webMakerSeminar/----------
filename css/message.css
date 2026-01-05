@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+#cover{
+    background-color: white;
+    position: absolute;
+    opacity: 0.5;
+    z-index: 999;
+    width: 1250px;
+    height: 570px;
+    top: 0;
+    left: 1%;
+}
+#message img{
+    position: absolute;
+    z-index: 1999;
+    width: 100%;
+    height: 150px;
+    top: 420px;
+}
+#speak{
+    position: absolute;
+    top: 430px;
+    left: 170px;
+    z-index: 2000;
+    white-space: pre-line;
+}
+#standImg{
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    z-index: 1999;
+    top: 50px;
+    left: 900px;
+}
+#standImg2{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    z-index: 1999;
+    top: 50px;
+    left: 900px;
+}
+#backButton{
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    left: 1%;
+    top: 500px;
+}
+#skip{
+    position: absolute;
+    z-index: 10000;
+    width: 100px;
+    height: 50px;
+    top: 30px;
+    left: 30px;
+}
+@media screen and (max-height:450px) and (orientation: landscape) {
+#cover{
+    width: 600px;
+    height: 200px;
+    top: 0;
+    left: 1%;
+}
+#message img{
+    width: 100%;
+    height: 100px;
+    top: 150px;
+}
+#standImg{
+    width: 100px;
+    height: 150px;
+    top: 10px;
+    left:450px;
+}
+#speak{
+    top: 130px;
+    left: 100px;
+}
+#skip{
+    width: 100px;
+    height: 25px;
+}
+#standImg2{
+    width: 150px;
+    height: 150px;
+    top: 10px;
+    left:450px;
+}
+}
