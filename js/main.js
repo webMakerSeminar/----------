@@ -1,37 +1,49 @@
-//---------- 初期取得 ----------
 const character = document.getElementById("character");
 const explainUI = document.getElementById("explainUI");
 const scene = document.getElementById("scene");
 const countX = document.getElementById("countX");
 const countY = document.getElementById("countY");
-const title = document.getElementById("title");
-const button = document.getElementById("button");
 
-//---------- 状態管理 ----------
-let x = 0, y = 0;
-const speed = 15;
-let direction = null;
-let frame = 0;
-
+//localStorage.setItem("system",controller)
 //const gender = localStorage.getItem("gender");
 
-//---------- 歩行画像 ----------
+let x = 0,
+    y = 0;
+const speed = 15;
+
 const walkImages = {
   up: ["/----------/img/学生背後.png"],
   down: ["/----------/img/学生正面.png"],
-  left: ["/----------/walkImage/男左1.png", "/----------/walkImage/男左2.png"],
-  right: ["/----------/walkImage/男右1.png", "/----------/walkImage/男右2.png"]
+  left: [
+    "/----------/walkImage/男左1.png",
+    "/----------/walkImage/男左2.png"
+  ],
+  right: [
+    "/----------/walkImage/男右1.png",
+    "/----------/walkImage/男右2.png"
+  ]
 };
 
 const womanWalkImages = {
-  up: ["/----------/walkImage/女背面.png", "/----------/walkImage/女背後2.png"],
+  up: [
+    "/----------/walkImage/女背面.png",
+    "/----------/walkImage/女背後2.png"
+  ],
   down: ["/----------/walkImage/女の子2.png"],
-  left: ["/----------/walkImage/女左1.png", "/----------/walkImage/女左2.png"],
-  right: ["/----------/walkImage/女右1.png", "/----------/walkImage/女右2.png"]
+  left: [
+    "/----------/walkImage/女左1.png",
+    "/----------/walkImage/女左2.png"
+  ],
+  right: [
+    "/----------/walkImage/女右1.png",
+    "/----------/walkImage/女右2.png"
+  ]
 };
 
-//---------- 初期表示 ----------
-window.addEventListener("load", () => {
+let direction = null;
+let frame = 0;
+
+window.addEventListener("load", function () {
   if (gender === "男") {
     character.src = "/----------/img/学生正面.png";
   } else if (gender === "女") {
@@ -39,10 +51,11 @@ window.addEventListener("load", () => {
   }
 });
 
-//---------- キー入力（移動） ----------
-window.addEventListener("keydown", e => {
+window.addEventListener("keydown", function (e) {
   const controller = JSON.parse(localStorage.getItem("system"));
-  if (controller === false) return;
+  if (controller === false) {
+    return;
+  }
 
   if ((e.key === "ArrowUp" || e.key === "w" || e.key === "W") && y < 330) {
     y += speed;
@@ -71,9 +84,16 @@ window.addEventListener("keydown", e => {
   if (e.code === "Space") {
     x = 0;
     y = 0;
-    if (gender === "男") character.src = "/----------/img/学生正面.png";
-    if (gender === "女") character.src = "/----------/walkImage/女の子2.png";
+
+    if (gender === "男") {
+      character.src = "/----------/img/学生正面.png";
+    } else if (gender === "女") {
+      character.src = "/----------/walkImage/女の子2.png";
+    }
   }
+
+  console.log(x);
+  console.log(y);
 
   scene.style.left = x + "px";
   scene.style.top = y + "px";
@@ -81,37 +101,59 @@ window.addEventListener("keydown", e => {
   intoNext();
 });
 
-//---------- キー離し ----------
 window.addEventListener("keyup", e => {
   direction = null;
 
-  if (e.key === "ArrowUp" && gender === "男") character.src = "/----------/img/学生背後.png";
-  if (e.key === "ArrowDown" && gender === "男") character.src = "/----------/img/学生正面.png";
-  if (e.key === "ArrowLeft" && gender === "男") character.src = "/----------/walkImage/男左1.png";
-  if (e.key === "ArrowRight" && gender === "男") character.src = "/----------/walkImage/男右1.png";
-
-  if (e.key === "ArrowUp" && gender === "女") character.src = "/----------/walkImage/女背面.png";
-  if (e.key === "ArrowDown" && gender === "女") character.src = "/----------/walkImage/女の子2.png";
-  if (e.key === "ArrowLeft" && gender === "女") character.src = "/----------/walkImage/女左1.png";
-  if (e.key === "ArrowRight" && gender === "女") character.src = "/----------/walkImage/女右1.png";
-});
-
-//---------- 歩行アニメ ----------
-setInterval(() => {
-  if (!direction) return;
-
-  if (gender === "男") {
-    frame = (frame + 1) % walkImages[direction].length;
-    character.src = walkImages[direction][frame];
+  if ((e.key === "ArrowUp" || e.key === "w" || e.key === "W") && y < 410) {
+    if (gender === "男") {
+      character.src = "/----------/img/学生背後.png";
+    } else if (gender === "女") {
+      character.src = "/----------/walkImage/女背面.png";
+    }
   }
 
-  if (gender === "女") {
-    frame = (frame + 1) % womanWalkImages[direction].length;
-    character.src = womanWalkImages[direction][frame];
+  if ((e.key === "ArrowDown" || e.key === "s" || e.key === "S") && y > -410) {
+    if (gender === "男") {
+      character.src = "/----------/img/学生正面.png";
+    } else if (gender === "女") {
+      character.src = "/----------/walkImage/女の子2.png";
+    }
+  }
+
+  if ((e.key === "ArrowLeft" || e.key === "a" || e.key === "A") && x < 450) {
+    if (gender === "男") {
+      character.src = "/----------/walkImage/男左1.png";
+    } else if (gender === "女") {
+      character.src = "/----------/walkImage/女左1.png";
+    }
+  }
+
+  if ((e.key === "ArrowRight" || e.key === "d" || e.key === "D") && x > -450) {
+    if (gender === "男") {
+      character.src = "/----------/walkImage/男右1.png";
+    } else if (gender === "女") {
+      character.src = "/----------/walkImage/女右1.png";
+    }
+  }
+});
+
+setInterval(() => {
+  if (direction) {
+    if (gender === "男") {
+      frame = (frame + 1) % walkImages[direction].length;
+      character.src = walkImages[direction][frame];
+      console.log("動いた");
+    } else if (gender === "女") {
+      frame = (frame + 1) % womanWalkImages[direction].length;
+      character.src = womanWalkImages[direction][frame];
+      console.log("動いた");
+    }
   }
 }, 150);
 
-//---------- 当たり判定 ----------
+const title = document.getElementById("title");
+const button = document.getElementById("button");
+
 const build = [
   { plane: "三連棟", x1: 390, y1: -15, x2: 135, y2: 105 },
   { plane: "左下の棟", x1: 240, y1: -120, x2: 120, y2: -30 },
@@ -120,7 +162,6 @@ const build = [
   { plane: "右上の棟", x1: 45, y1: 225, x2: -135, y2: 360 }
 ];
 
-//---------- 遷移処理 ----------
 function intoNext() {
   let hit = false;
 
@@ -129,25 +170,70 @@ function intoNext() {
       hit = true;
       ShowUI();
 
-      title.textContent =
-        area.plane === "三連棟" ? "三号棟" :
-        area.plane === "左下の棟" ? "四号棟" :
-        area.plane === "中央の奴" ? "一号棟" :
-        area.plane === "右下の棟" ? "二号棟" :
-        "五号棟";
+      if (area.plane === "三連棟") {
+        title.textContent = "三号棟";
+      } else if (area.plane === "左下の棟") {
+        title.textContent = "四号棟";
+      } else if (area.plane === "中央の奴") {
+        title.textContent = "一号棟";
+      } else if (area.plane === "右下の棟") {
+        title.textContent = "二号棟";
+      } else if (area.plane === "右上の棟") {
+        title.textContent = "五号棟";
+      }
 
-      button.onclick = () => {
+      button.addEventListener("click", function () {
         localStorage.setItem("storagePlane", area.plane);
         window.location.href = "/----------/html/classroom1.html";
-      };
+      });
+
+      console.log(area.plane);
       break;
     }
   }
 
-  if (!hit) HideUI();
+  if (hit) ShowUI();
+  else HideUI();
 }
 
-//---------- UI制御 ----------
+//スマホ用、無駄が多いので書き換える可能性アリ
+const threeScience = document.getElementById("threeScience");
+const centerThree = document.getElementById("centerThree");
+const leftSmall = document.getElementById("leftSmall");
+const firstScience = document.getElementById("firstScience");
+const library = document.getElementById("library");
+
+//後でcssで触れられないように書き換えておく
+threeScience.addEventListener("click", function () {
+  title.textContent = threeScience.textContent;
+  ShowUI();
+});
+
+centerThree.addEventListener("click", function () {
+  title.textContent = centerThree.textContent;
+  ShowUI();
+});
+
+leftSmall.addEventListener("click", function () {
+  title.textContent = leftSmall.textContent;
+  ShowUI();
+});
+
+firstScience.addEventListener("click", function () {
+  title.textContent = firstScience.textContent;
+  ShowUI();
+});
+
+library.addEventListener("click", function () {
+  title.textContent = library.textContent;
+  ShowUI();
+});
+
+button.addEventListener("click", function () {
+  localStorage.setItem("storagePlane", title.textContent);
+  window.location.href = "/----------/html/classroom1.html";
+});
+
 function ShowUI() {
   explainUI.style.display = "block";
 }
@@ -156,39 +242,50 @@ function HideUI() {
   explainUI.style.display = "none";
 }
 
-//---------- 隠しコマンド ----------
+//デバッグ用
 let keys = { ctrl: false, q: false, m: false, shift: false };
 
-document.addEventListener("keydown", e => {
+document.addEventListener("keydown", function (e) {
   if (e.key === "Control") keys.ctrl = true;
   if (e.key === "Shift") keys.shift = true;
   if (e.key.toLowerCase() === "q") keys.q = true;
   if (e.key.toLowerCase() === "m") keys.m = true;
+
   checkShortcut();
 });
 
-document.addEventListener("keyup", e => {
+document.addEventListener("keyup", function (e) {
   if (e.key === "Control") keys.ctrl = false;
   if (e.key === "Shift") keys.shift = false;
   if (e.key.toLowerCase() === "q") keys.q = false;
   if (e.key.toLowerCase() === "m") keys.m = false;
 });
 
-//---------- 隠し表示切替 ----------
 function checkShortcut() {
   const boxes = document.querySelectorAll(".imageBox");
 
   if (keys.ctrl && keys.q && keys.m) {
-    boxes.forEach(b => {
-      b.classList.remove("hiddenUI");
-      b.classList.add("show");
+    boxes.forEach(box => {
+      box.classList.remove("hiddenUI");
+      box.classList.add("show");
     });
+    console.log("隠しコード起動");
   }
 
   if (keys.ctrl && keys.q && keys.shift) {
-    boxes.forEach(b => {
-      b.classList.remove("show");
-      b.classList.add("hiddenUI");
+    boxes.forEach(box => {
+      box.classList.remove("show");
+      box.classList.add("hiddenUI");
     });
+    console.log("隠しコード封印");
   }
 }
+
+document.getElementById("selection").addEventListener("change", function () {
+  const location = this.value;
+  console.log(location);
+});
+
+document.getElementById("imageDisplay").addEventListener("click", function () {
+  console.log("こんにちは");
+});
