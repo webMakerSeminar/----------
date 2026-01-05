@@ -17,25 +17,25 @@ let frame = 0;
 
 //---------- 歩行画像 ----------
 const walkImages = {
-  up: ["/img/学生背後.png"],
-  down: ["/img/学生正面.png"],
-  left: ["/walkImage/男左1.png", "/walkImage/男左2.png"],
-  right: ["/walkImage/男右1.png", "/walkImage/男右2.png"]
+  up: ["/----------/img/学生背後.png"],
+  down: ["/----------/img/学生正面.png"],
+  left: ["/----------/walkImage/男左1.png", "/----------/walkImage/男左2.png"],
+  right: ["/----------/walkImage/男右1.png", "/----------/walkImage/男右2.png"]
 };
 
 const womanWalkImages = {
-  up: ["/walkImage/女背面.png", "/walkImage/女背後2.png"],
-  down: ["/walkImage/女の子2.png"],
-  left: ["/walkImage/女左1.png", "/walkImage/女左2.png"],
-  right: ["/walkImage/女右1.png", "/walkImage/女右2.png"]
+  up: ["/----------/walkImage/女背面.png", "/----------/walkImage/女背後2.png"],
+  down: ["/----------/walkImage/女の子2.png"],
+  left: ["/----------/walkImage/女左1.png", "/----------/walkImage/女左2.png"],
+  right: ["/----------/walkImage/女右1.png", "/----------/walkImage/女右2.png"]
 };
 
 //---------- 初期表示 ----------
 window.addEventListener("load", () => {
   if (gender === "男") {
-    character.src = "/img/学生正面.png";
+    character.src = "/----------/img/学生正面.png";
   } else if (gender === "女") {
-    character.src = "/walkImage/女の子2.png";
+    character.src = "/----------/walkImage/女の子2.png";
   }
 });
 
@@ -71,8 +71,8 @@ window.addEventListener("keydown", e => {
   if (e.code === "Space") {
     x = 0;
     y = 0;
-    if (gender === "男") character.src = "/img/学生正面.png";
-    if (gender === "女") character.src = "/walkImage/女の子2.png";
+    if (gender === "男") character.src = "/----------/img/学生正面.png";
+    if (gender === "女") character.src = "/----------/walkImage/女の子2.png";
   }
 
   scene.style.left = x + "px";
@@ -85,15 +85,15 @@ window.addEventListener("keydown", e => {
 window.addEventListener("keyup", e => {
   direction = null;
 
-  if (e.key === "ArrowUp" && gender === "男") character.src = "/img/学生背後.png";
-  if (e.key === "ArrowDown" && gender === "男") character.src = "/img/学生正面.png";
-  if (e.key === "ArrowLeft" && gender === "男") character.src = "/walkImage/男左1.png";
-  if (e.key === "ArrowRight" && gender === "男") character.src = "/walkImage/男右1.png";
+  if (e.key === "ArrowUp" && gender === "男") character.src = "/----------/img/学生背後.png";
+  if (e.key === "ArrowDown" && gender === "男") character.src = "/----------/img/学生正面.png";
+  if (e.key === "ArrowLeft" && gender === "男") character.src = "/----------/walkImage/男左1.png";
+  if (e.key === "ArrowRight" && gender === "男") character.src = "/----------/walkImage/男右1.png";
 
-  if (e.key === "ArrowUp" && gender === "女") character.src = "/walkImage/女背面.png";
-  if (e.key === "ArrowDown" && gender === "女") character.src = "/walkImage/女の子2.png";
-  if (e.key === "ArrowLeft" && gender === "女") character.src = "/walkImage/女左1.png";
-  if (e.key === "ArrowRight" && gender === "女") character.src = "/walkImage/女右1.png";
+  if (e.key === "ArrowUp" && gender === "女") character.src = "/----------/walkImage/女背面.png";
+  if (e.key === "ArrowDown" && gender === "女") character.src = "/----------/walkImage/女の子2.png";
+  if (e.key === "ArrowLeft" && gender === "女") character.src = "/----------/walkImage/女左1.png";
+  if (e.key === "ArrowRight" && gender === "女") character.src = "/----------/walkImage/女右1.png";
 });
 
 //---------- 歩行アニメ ----------
@@ -138,7 +138,7 @@ function intoNext() {
 
       button.onclick = () => {
         localStorage.setItem("storagePlane", area.plane);
-        window.location.href = "/html/classroom1.html";
+        window.location.href = "/----------/html/classroom1.html";
       };
       break;
     }
