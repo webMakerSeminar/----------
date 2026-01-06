@@ -31,10 +31,8 @@ window.addEventListener("load", function () {
 });
 
 skip.addEventListener("click", function () {
-    message.style.display = "none";
-    standImg.style.display = "none";
-    standImg2.style.display = "none";
-    skip.style.display = "none";
+    HiddenUI();
+    Human();
 });
 
 standImg.addEventListener("click", nextTalk);
@@ -45,7 +43,6 @@ function nextTalk() {
     if (flag >= talk.length) {
         HiddenUI();
         Human();
-        skip.style.display = "none";
         return;
     }
     speak.textContent = talk[flag];
@@ -59,4 +56,6 @@ function Human() {
 
 function HiddenUI() {
     message.style.display = "none";
+    skip.style.display = "none";
+    speak.style.display ="none";
 }

@@ -52,6 +52,8 @@ cover.addEventListener("click",function(){
         speak.textContent = talk[count][flag];
     }else if(count === 3){
         cover.style.display = "none";
+        message.style.display = "none";
+        speak.style.display = "none";
         direction.style.display = "block";
     }else{
         speak.textContent = talk[count][flag];

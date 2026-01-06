@@ -103,7 +103,6 @@ standImg.addEventListener("click",function(){
     if(flag === talk[pattern].length +1){
         HiddenUI();
         Human();
-        skip.style.display = "none";
         localStorage.setItem("system", JSON.stringify(true));
     }
 })
@@ -113,17 +112,12 @@ standImg2.addEventListener("click",function(){
     if(flag === talk[pattern].length +1){
         HiddenUI();
         Human();
-        skip.style.display = "none";
-
         localStorage.setItem("system", JSON.stringify(true));
     }
 })
 skip.addEventListener("click",function(){
-    standImg.style.display = "none";
-    standImg2.style.display = "none";
-    message.style.display = "none";
-    skip.style.display = "none";
-
+    HiddenUI();
+    Human();
     localStorage.setItem("system", JSON.stringify(true));
 })
 
@@ -134,7 +128,6 @@ message.addEventListener("click",function(){
     if(flag === talk[pattern].length + 1){
         HiddenUI();
         Human();
-        skip.style.display = "none";
         localStorage.setItem("system", JSON.stringify(true));
     }
 })
@@ -161,4 +154,6 @@ function Human(){
 //試験2
 function HiddenUI(){
     message.style.display = "none";
+    speak.style.display = "none";
+    skip.style.display = "none";
 }
