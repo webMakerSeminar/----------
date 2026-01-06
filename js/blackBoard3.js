@@ -2,7 +2,6 @@ const blackBoardPlane = localStorage.getItem("blackBoardPlane");
 const image3 = document.getElementById("image3");
 const movie = document.getElementById("movie");
 
-let type = "";
 
 const TVImage = ["/----------/えちごimage/テレビ画像.png"];
 const planeImage = ["/----------/えちごimage/ホワイトボード加工済み1.png",
