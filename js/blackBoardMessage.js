@@ -112,10 +112,8 @@ window.addEventListener("load", function () {
 });
 
 skip.addEventListener("click", function () {
-    message.style.display = "none";
-    standImg.style.display = "none";
-    standImg2.style.display = "none";
-    skip.style.display = "none";
+    Human();
+    HiddenUI();
 });
 
 standImg.addEventListener("click", nextTalk);

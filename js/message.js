@@ -112,11 +112,8 @@ standImg2.addEventListener("click",function(){
     }
 })
 skip.addEventListener("click",function(){
-    standImg.style.display = "none";
-    standImg2.style.display = "none";
-    message.style.display = "none";
-    speak.style.display = "none";
-    skip.style.display = "none";
+    HiddenUI();
+    Human();
     character.style.display = "block";
     localStorage.setItem("system", JSON.stringify(true));
 })
