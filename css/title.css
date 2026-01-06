@@ -131,7 +131,7 @@
 }
 
 /* ======== 高さ300px以下・横向き ======== */
-@media screen and (max-height:300px) and (orientation: landscape) {
+@media screen and (max-height:450px) and (orientation: landscape) {
 
 #man{
     height: 200px;
