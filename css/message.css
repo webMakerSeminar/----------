@@ -57,25 +57,59 @@
 }
 @media screen and (max-height:450px) and (orientation: landscape) {
 #cover{
-    width: 600px;
-    height: 200px;
-    top: 0;
-    left: 1%;
+        width: 880px;
+        height: 410px;
+        top: 3%;
+        left: 3%;
 }
 #message img{
     width: 100%;
     height: 100px;
-    top: 150px;
+    top: 70%;
 }
 #standImg{
-    width: 100px;
-    height: 150px;
-    top: 10px;
-    left:450px;
+    width: 150px;
+        height: 200px;
+        top: 25%;
+        left: 70%;
 }
 #speak{
-    top: 200px;
-    left: 80px;
+        top: 70%;
+        left: 15%;
+        font-size: 1.17em;
+}
+#skip{
+    width: 100px;
+    height: 25px;
+}
+#standImg2{
+width: 200px;
+        height: 200px;
+        top: 25%;
+        left: 70%;
+}
+}
+@media screen and (max-height:360px) and (orientation: landscape) {
+#cover{
+        width: 830px;
+        height: 330px;
+        top: 5px;
+        left: 3%;
+}
+#message img{
+    width: 100%;
+    height: 100px;
+    top: 65%;
+}
+#standImg{
+        width: 150px;
+        height: 200px;
+        top: 10%;
+        left: 70%;
+}
+#speak{
+        top: 65%;
+        left: 13%;
     font-size: 1.17em;
 }
 #skip{
@@ -83,9 +117,9 @@
     height: 25px;
 }
 #standImg2{
-    width: 150px;
-    height: 150px;
-    top: 10px;
-    left:450px;
+        width: 200px;
+        height: 200px;
+        top: 10%;
+        left: 70%;
 }
 }

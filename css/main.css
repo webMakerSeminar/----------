@@ -18,24 +18,10 @@ width: 100%;
     width: 1270px;
     height: 800px;
 }
-@media screen and (max-height:300px) and (orientation: landscape) {
-#scene img{
-    width: 600px;
-    height:300px;
-    overflow: hidden;
-}
-}
 /*カウントデバッグ表示*/
 #count{
   display: none;
-  /*
-    right:0;
-    position:absolute;
-    z-index: 10000;
-    gap: 10px;
-    margin-bottom: 10px;
-  */
-  }
+}
 #character{
     position: absolute;
     top: 350px;
@@ -108,9 +94,13 @@ width: 100%;
 
 /*以下、max-height:300px、スマホ用*/
 @media screen and (max-height:450px) and (orientation: landscape) {
-    #explainUI{
+  #scene img{
+        width: 800px;
+        height: 420px;
+  }  
+  #explainUI{
         position: absolute;
-        left: 500px;
+        left: 700px;
     }
     #smartPhone{
     inset: 0;
@@ -124,34 +114,34 @@ width: 100%;
     cursor:pointer;
   }
     #threeScience{
-    width: 120px;
-    height: 60px;
-    left: 100px;
-    top: 90px;
+        width: 184px;
+        height: 85px;
+        left: 132px;
+        top: 128px;
   }
   #centerThree{
-    left:250px;
-    top: 100px;
-    width: 130px;
-    height: 60px;
+        left: 342px;
+        top: 126px;
+        width: 165px;
+        height: 103px;
   }
   #leftSmall{
-    left:180px;
-    top:160px;
-    width: 50px;
-    height: 45px;
+        left: 232px;
+        top: 217px;
+        width: 86px;
+        height: 69px;
   }
   #firstScience{
-    left:270px;
-    top:20px;
-    width: 100px;
-    height: 50px;
+        left: 360px;
+        top: 20px;
+        width: 127px;
+        height: 85px;
   }
   #library{
-    left:320px;
-    top:180px;
-    width: 130px;
-    height: 50px;
+        left: 408px;
+        top: 234px;
+        width: 184px;
+        height: 102px;
   }
   #title{
     font-size: 1em;
@@ -183,7 +173,92 @@ width: 100%;
     gap:5px;
     margin-bottom: 3px;
 }
-#character{
+#characterImage img{
+  display: none;
+}
+}
+
+@media screen and (max-height:360px) and (orientation: landscape) {
+  #scene img{
+    width: 800px;
+    height: 330px;
+  }  
+  #explainUI{
+        position: absolute;
+        left: 660px;
+    }
+    #smartPhone{
+    inset: 0;
+  }
+  #smartPhone button{
+    display: block;
+    position:absolute;
+    background:transparent;
+    border: 2px solid black;
+    z-index: 30000;
+    cursor:pointer;
+  }
+    #threeScience{
+        width: 184px;
+        height: 60px;
+        left: 132px;
+        top: 105px;
+  }
+  #centerThree{
+        left: 342px;
+        top: 95px;
+        width: 165px;
+        height: 90px;
+  }
+  #leftSmall{
+        left: 232px;
+        top: 167px;
+        width: 86px;
+        height: 56px;
+  }
+  #firstScience{
+    left:360px;
+    top:10px;
+    width: 127px;
+    height: 73px;
+  }
+  #library{
+        left: 408px;
+        top: 188px;
+        width: 184px;
+        height: 71px;
+  }
+  #title{
+    font-size: 1em;
+  }
+  .item img{
+    width: 20px;
+    height: 20px;
+  }
+  .item h3{
+    font-size: 0.5em;
+  }
+  #tryUI button{
+    width: 70px;
+    height: 20px;
+    font-size: 0.5em;
+  }
+  #tryUI{
+    left: 20px;
+    top: 40px;
+}
+#windowUI{
+    width: 100px;
+    height: 220px;
+}
+#count{
+  display: none;
+}
+.item{
+    gap:5px;
+    margin-bottom: 3px;
+}
+#characterImage img{
   display: none;
 }
 }
