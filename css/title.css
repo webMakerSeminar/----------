@@ -148,8 +148,9 @@
 
 }
 #speak{
-    top: 300px;
-    font-size: 1.5em;
+        top: 70vh;
+        font-size: 1.5em;
+        left: 70vh;
 }
 #message{
     left: 50%;
@@ -192,8 +193,9 @@
 
 }
 #speak{
-    top: 202px;
-    font-size: 1.5em;
+        top: 60vh;
+        font-size: 1.5em;
+        left: 35vh;
 }
 #message{
     left: 50%;

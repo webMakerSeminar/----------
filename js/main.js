@@ -55,11 +55,6 @@ window.addEventListener("load", function () {
   } else if (gender === "女") {
     character.src = "/----------/walkImage/女の子2.png";
   }
-  threeScience.textContent = "三号館";
-  centerThree.textContent = "一号館";
-  leftSmall.textContent = "四号館";
-  firstScience.textContent = "五号館";
-  library.textContent ="二号館";
 });
 
 window.addEventListener("keydown", function (e) {
@@ -180,6 +175,18 @@ function intoNext() {
     if (x < area.x1 && x > area.x2 && y > area.y1 && y < area.y2) {
       hit = true;
       ShowUI();
+
+      if (area.plane === "三連棟") {
+        title.textContent = "三号棟";
+      } else if (area.plane === "左下の棟") {
+        title.textContent = "四号棟";
+      } else if (area.plane === "中央の奴") {
+        title.textContent = "一号棟";
+      } else if (area.plane === "右下の棟") {
+        title.textContent = "二号棟";
+      } else if (area.plane === "右上の棟") {
+        title.textContent = "五号棟";
+      }
 
       button.addEventListener("click", function () {
         localStorage.setItem("storagePlane", area.plane);
