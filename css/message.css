@@ -10,7 +10,7 @@
     top: 0;
     left: 1%;
 }
-#message img{
+#took{
     position: absolute;
     z-index: 1999;
     width: 100%;
@@ -62,7 +62,7 @@
         top: 3%;
         left: 3%;
 }
-#message img{
+#took{
     width: 100%;
     height: 100px;
     top: 70%;
@@ -96,7 +96,7 @@ width: 200px;
         top: 5px;
         left: 3%;
 }
-#message img{
+#took{
     width: 100%;
     height: 100px;
     top: 65%;
