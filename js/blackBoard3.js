@@ -36,5 +36,7 @@ window.addEventListener("load",function(){
             image3.src = komazawa[random];
             type = "カオス";
         }
+    }else{
+        image3.src = "/----------/謝罪の紙.png"
     }
 })

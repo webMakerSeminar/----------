@@ -70,7 +70,9 @@ const talk = {
         "これ、プロジェクションマッピングの動画みたい",
         "なんか動いてるような……？",
         "って、ここもなんか変だね。\nもしかしたら、もう一度来てみたら何か起こるかもしれないね"
-    ]
+    ],
+    ごめんなさい:["準備中って書いてあるな。","仕方ない、引き返すとしよう"],
+    ごめんなさい1:["うーん、準備中かー","こんな時に！クレームを入れてやりたいところだけど……\n仕方ない、引き帰そ"]
 }
 
 
@@ -85,7 +87,7 @@ window.addEventListener("load", function () {
         }else if (type === "料理"){
             patternPlane = patternPlane + type;
         }
-    }if(blackBoardPlane === "中央の奴"){
+    }else if(blackBoardPlane === "中央の奴"){
         patternPlane = blackBoardPlane;
         if(type === "長編"){
             patternPlane = patternPlane + type;
@@ -96,7 +98,11 @@ window.addEventListener("load", function () {
         }else if (type === "ムービー"){
             patternPlane = patternPlane +type ;
         }
+    }else {
+        patternPlane = "ごめんなさい"
+        movie.style.display = "none";
     }
+
     if (gender === "男") {
         standImg2.style.display = "none";
     } else if (gender === "女") {
@@ -135,4 +141,5 @@ function HiddenUI() {
     message.style.display = "none";
     took.style.display = "none";
     speak.style.display = "none";
+    skip.style.display = "none";
 }

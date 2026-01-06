@@ -39,7 +39,11 @@ window.addEventListener("load", function () {
         image2.src = komazawa[random];
         type = "マッピング";
         movie.style.display = "none";
-    } else if (blackBoardPlane === "右下の棟") {
+    } else {
+        image2.src = "/----------/謝罪の紙.png"
+    }
+        /*if (blackBoardPlane === "右下の棟") {
         image2.src = TVImage[1];
     }
+        */
 });
