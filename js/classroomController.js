@@ -156,5 +156,6 @@ function Human(){
 function HiddenUI(){
     message.style.display = "none";
     speak.style.display = "none";
+    took.style.display = "none";
     skip.style.display = "none";
 }
