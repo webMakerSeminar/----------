@@ -1,10 +1,15 @@
 const blackBoardPlane = localStorage.getItem("blackBoardPlane");
 const image = document.getElementById("image");
+const movie = document.getElementById("movie");
 
 const planeImage = [
     "/----------/えちごimage/ホワイトボード加工済み1.png",
     "/----------/えちごimage/黒板強化後2枠アリ強化後.png",
 ];
+
+const movieCollect = [
+    "/----------/movie/IMG_2843.MOV",
+]
 
 //画面を決定する
 window.addEventListener("load", function () {
@@ -16,6 +21,8 @@ window.addEventListener("load", function () {
         document.body.style.background = "bisque";
     } else if (blackBoardPlane === "三連棟") {
         image.src = planeImage[1];
+        movie.src = movieCollect[0];
+        type = "料理"
     } else if (blackBoardPlane === "右上の棟") {
         image.src = planeImage[1];
     }
