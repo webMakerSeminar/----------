@@ -74,8 +74,9 @@
     left:450px;
 }
 #speak{
-    top: 130px;
-    left: 100px;
+    top: 200px;
+    left: 80px;
+    font-size: 1.17em;
 }
 #skip{
     width: 100px;
