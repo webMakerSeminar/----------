@@ -46,6 +46,16 @@ const talk = {
         "……あはは、鳴っちゃった。\nこの世界に迷い込んで何も食べてないんだよね",
         "帰ったら、お腹いっぱいになるまで食べるぞー！"
     ],
+    中央の奴長編:["これ、凄すぎないか！？",
+        "テレビとかでしか見ないプロジェクションマッピングってやつだよな！？",
+        "くーここから出られたら絶対に見に行くって言うのに！",
+        "ほら、お前も見てみろよ"
+    ],
+    中央の奴長編1:["わぁ！？プロジェクトマネジメント……？だっけ？",
+        "とにかく、すごいのはよくわかるよ。\nなんていうか、なんていうか凄い！ってことだけはね",
+        "ほら、君も見て見なよ！"
+    ],
+
 }
 
 
@@ -58,6 +68,11 @@ window.addEventListener("load", function () {
         }else if (type ==="サトイモ"){
             pattern = pattern +type;
         }else if (type === "料理"){
+            pattern = pattern + type;
+        }
+    }if(blackBoardPlane === "中央の奴"){
+        pattern = blackBoardPlane;
+        if(type === "長編"){
             pattern = pattern + type;
         }
     }

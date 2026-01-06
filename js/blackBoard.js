@@ -9,6 +9,7 @@ const planeImage = [
 
 const movieCollect = [
     "/----------/movie/IMG_2843.MOV",
+    "/----------/駒大向上委員会/IMG_3398.MOV"
 ]
 
 //画面を決定する
@@ -19,6 +20,8 @@ window.addEventListener("load", function () {
     } else if (blackBoardPlane === "中央の奴") {
         image.src = planeImage[0];
         document.body.style.background = "bisque";
+        movie.src = movieCollect[1];
+        type = "長編"
     } else if (blackBoardPlane === "三連棟") {
         image.src = planeImage[1];
         movie.src = movieCollect[0];
