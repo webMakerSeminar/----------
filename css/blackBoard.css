@@ -8,11 +8,9 @@ body{
 }
 #movie{
     position:absolute;
-    height: 350px;
-    width:1200px;
-    z-index: 10000;
-    top: 100px;
-    left: 100px;
+    height: 100%;
+    width:100%;
+    z-index: 100;
 
 }
 @media screen and (max-height:450px) and (orientation: landscape) {

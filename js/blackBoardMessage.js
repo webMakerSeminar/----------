@@ -16,23 +16,37 @@ const skip = document.getElementById("skip");
 
 const gender = localStorage.getItem("gender");
 
+
+let pattern = "";
 let flag = 0;
 
-const talk = [
-    "展示するものを決め次第書く"
-];
+const talk = {
+    三連棟カボチャ:["これ、カボチャ！？\n野菜で楽器を作ってるってことか","確かに打楽器なら叩けば行けるのか？","どんな音が出るんだろうな"],
+    三連棟カボチャ1:["か、カボチャが楽器になってる！？","楽器ってすごく高い物が多いのに、野菜で出来るのかな？","うーん、それにしてもお腹が空いてきちゃうね！"]
+}
+
+
 
 window.addEventListener("load", function () {
+    if(blackBoardPlane === "三連棟"){
+        pattern = blackBoardPlane;
+        if(type === "カボチャ"){
+            pattern = pattern + type;
+        }
+    }
     if (gender === "男") {
         standImg2.style.display = "none";
     } else if (gender === "女") {
         standImg.style.display = "none";
+        pattern = pattern + "1";
     }
 });
 
 skip.addEventListener("click", function () {
-    HiddenUI();
-    Human();
+    message.style.display = "none";
+    standImg.style.display = "none";
+    standImg2.style.display = "none";
+    skip.style.display = "none";
 });
 
 standImg.addEventListener("click", nextTalk);
@@ -40,13 +54,13 @@ standImg2.addEventListener("click", nextTalk);
 message.addEventListener("click", nextTalk);
 
 function nextTalk() {
-    if (flag >= talk.length) {
+    speak.textContent = talk[pattern][flag];
+    flag++;
+    if(flag === talk[pattern].length +1){
         HiddenUI();
         Human();
-        return;
+        skip.style.display = "none";
     }
-    speak.textContent = talk[flag];
-    flag++;
 }
 
 function Human() {
@@ -56,7 +70,6 @@ function Human() {
 
 function HiddenUI() {
     message.style.display = "none";
-    skip.style.display = "none";
-    speak.style.display ="none";
     took.style.display = "none";
+    speak.style.display = "none";
 }
