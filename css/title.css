@@ -1,165 +1,173 @@
 @charset "UTF-8";
 
-#direction{
+/* ===== 共通中央基準 ===== */
+#direction,
+#man,
+#woman,
+#speak,
+#overlay,
+#cover img,
+#button,
+#clockButton {
     position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+/* ===== direction ===== */
+#direction{
     z-index: 100002;
-    top: 100px;
-    left: 400px;
     height: 300px;
     width: 300px;
     display: none;
     cursor: pointer;
+    transform: translate(-50%, -50%) translate(-225px, -185px);
 }
+
+/* ===== man ===== */
 #man{
-    position: absolute;
     z-index: 10001;
     height: 350px;
-    left:300px;
-    top:50px;
     display: none;
+    transform: translate(-50%, -50%) translate(-325px, -235px);
 }
+
+/* ===== woman ===== */
 #woman{
-    position: absolute;
     z-index: 10001;
     height: 350px;
-    left: 800px;
-    top: 50px;
     display: none;
+    transform: translate(-50%, -50%) translate(175px, -235px);
 }
-@media screen and (max-height:300px) and (orientation: landscape) {
-#man{
-    height: 200px;
-    left:150px;
-    top:10px;
-}
-#woman{
-    height: 200px;
-    left: 400px;
-    top: 10px;
-}
-#direction{
-    top: 80px;
-    left: 200px;
-    height: 150px;
-    width: 150px;
-}
-}
+
+/* ===== speak ===== */
 #speak{
-    position: absolute;
     z-index: 10000;
-    top:400px;
-    left: 150px;
+    transform: translate(-50%, -50%) translate(-475px, 115px);
 }
-@media screen and (max-width:900px) {
-#speak{
-    top: 410px;
-    left: 80px;
-    font-size: 1.17em;
+
+/* ===== overlay ===== */
+#overlay{
+    width: 1230px;
+    height: 570px;
+    background-color: white;
+    opacity: 0.5;
+    z-index: 9998;
+    transform: translate(-50%, -50%) translate(-615px, -285px);
 }
-}
-@media screen and (max-height:300px) and (orientation: landscape) {
- #speak{
-    top:200px
-  }
-}
+
+/* ===== cover ===== */
 #cover{
     position: relative;
     height: 100%;
     width: 100%;
 }
-#overlay{
-    top: 2%;
-    left:1%;
-    width: 1230px;
-    height: 570px;
-    background-color: white;
-    position: absolute;
-    opacity: 0.5;
-    z-index: 9998;
-}
-@media screen and (max-width:900px){
-#overlay{
-    width: 600px;
-}
-}
-@media screen and (max-height:300px) and (orientation: landscape) {
-#overlay{
-    height: 300px;
-}
-}
+
+/* ===== message image ===== */
 #cover img{
-    position: absolute;
-    top:400px;
     width: 100%;
     height:150px;
     z-index: 9999;
+    transform: translate(-50%, -50%) translate(0px, 115px);
 }
-@media screen and (max-width:900px) {
-#cover img{
-    width: 600px;
-}
-}
-@media screen and (max-height:300px) and (orientation: landscape) {
- #cover img{
-    top: 200px;
-    height: 100px;
- }
-}
+
+/* ===== title image ===== */
 #titleImage{
     position: relative;
     width: 100%;
     height:570px;
     display: block;
 }
-@media screen and (max-width:900px){
-    #titleImage{
-        object-fit: cover;
-        height: 100%;
-    }
-}
-@media screen and (max-height:300px) and (orientation: landscape) {
- #titleImage{
-    height: 300px;
- }
-}
+
 #button{
-    position: absolute;
-    top :10%;
-    left: 10%;
     width: 300px;
     height: 450px;
     background:transparent;
     border: none;
     cursor:pointer;
+    transform: translate(-50%, -50%) translate(-425px, -170px);
 }
-@media screen and (max-width:900px){
-#button{
-    left: 0%;
-    width: 150px;
-}
-}
-@media screen and (max-height:300px) and (orientation: landscape) {
- #button{
-    top: 3%;
-    left: 10%;
-    height: 300px;  
- }
-}
+
 #clockButton{
-    position: absolute;
-    top :10%;
-    left: 49%;
     width: 150px;
     height: 120px;
     background:transparent;
     border-radius: 50%;
     border:none;
     cursor:pointer;
+    transform: translate(-50%, -50%) translate(-10px, -170px);
 }
+
+/* ======== 画面幅900px以下 ======== */
 @media screen and (max-width:900px){
+
+#overlay{
+    width: 600px;
+}
+
+#cover img{
+    width: 600px;
+}
+
+#speak{
+    font-size: 1.17em;
+    transform: translate(-50%, -50%) translate(-545px, 125px);
+}
+
+#button{
+    width: 150px;
+    transform: translate(-50%, -50%) translate(-625px, -170px);
+}
+
 #clockButton{
-    left: 47%;
     width: 120px;
+    transform: translate(-50%, -50%) translate(-35px, -170px);
+}
+
+#titleImage{
+    object-fit: cover;
+    height: 100%;
 }
 }
 
+/* ======== 高さ300px以下・横向き ======== */
+@media screen and (max-height:300px) and (orientation: landscape) {
+
+#man{
+    height: 200px;
+    transform: translate(-50%, -50%) translate(-475px, -135px);
+}
+
+#woman{
+    height: 200px;
+    transform: translate(-50%, -50%) translate(-225px, -135px);
+}
+
+#direction{
+    height: 150px;
+    width: 150px;
+    transform: translate(-50%, -50%) translate(-425px, -55px);
+}
+
+#overlay{
+    height: 300px;
+}
+
+#cover img{
+    height: 100px;
+    transform: translate(-50%, -50%) translate(0px, 15px);
+}
+
+#speak{
+    transform: translate(-50%, -50%) translate(-475px, 15px);
+}
+
+#button{
+    height: 300px;
+    transform: translate(-50%, -50%) translate(-425px, -155px);
+}
+
+#titleImage{
+    height: 300px;
+}
+}
