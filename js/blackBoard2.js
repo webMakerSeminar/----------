@@ -15,6 +15,15 @@ const planeImage = [
     "/----------/えちごimage/ホワイトボード左.png"
 ];
 
+const komazawa = [
+    "/----------/駒大向上委員会/IMG_2951.jpg",
+    "/----------/駒大向上委員会/IMG_2952.jpg",
+    "/----------/駒大向上委員会/IMG_2953.jpg",
+    "/----------/駒大向上委員会/IMG_2954.jpg",
+]
+
+let random = 0;
+
 const movieCollect = ["/----------/movie/サトイモ.MOV"];
 
 //画面を決定する
@@ -26,7 +35,10 @@ window.addEventListener("load", function () {
         type = "サトイモ"
     } else if (blackBoardPlane === "中央の奴") {
         console.log(blackBoardPlane);
-        image2.src = planeImage[3];
+        random = Math.floor(Math.random() *komazawa.length)
+        image2.src = komazawa[random];
+        type = "マッピング";
+        movie.style.display = "none";
     } else if (blackBoardPlane === "右下の棟") {
         image2.src = TVImage[1];
     }
