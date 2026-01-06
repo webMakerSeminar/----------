@@ -1,5 +1,6 @@
 const blackBoardPlane = localStorage.getItem("blackBoardPlane");
 const image2 = document.getElementById("image2");
+const movie = document.getElementById("movie");
 
 const TVImage = [
     "/----------/えちごimage/テレビ画像.png",
@@ -14,11 +15,15 @@ const planeImage = [
     "/----------/えちごimage/ホワイトボード左.png"
 ];
 
+const movieCollect = ["/----------/movie/サトイモ.MOV"];
+
 //画面を決定する
 window.addEventListener("load", function () {
     if (blackBoardPlane === "三連棟") {
         console.log(blackBoardPlane);
         image2.src = TVImage[0];
+        movie.src = movieCollect[0];
+        type = "サトイモ"
     } else if (blackBoardPlane === "中央の奴") {
         console.log(blackBoardPlane);
         image2.src = planeImage[3];
