@@ -110,6 +110,7 @@ width: 100%;
     position:absolute;
     background:transparent;
     border:none;
+    opacity: 0;
     z-index: 30000;
     cursor:pointer;
   }

@@ -4,6 +4,12 @@ const scene = document.getElementById("scene");
 const countX = document.getElementById("countX");
 const countY = document.getElementById("countY");
 
+const threeScience = document.getElementById("threeScience");
+const centerThree = document.getElementById("centerThree");
+const leftSmall = document.getElementById("leftSmall");
+const firstScience = document.getElementById("firstScience");
+const library = document.getElementById("library");
+
 //localStorage.setItem("system",controller)
 //const gender = localStorage.getItem("gender");
 
@@ -49,6 +55,11 @@ window.addEventListener("load", function () {
   } else if (gender === "女") {
     character.src = "/----------/walkImage/女の子2.png";
   }
+  threeScience.textContent = "三号館";
+  centerThree.textContent = "一号館";
+  leftSmall.textContent = "四号館";
+  firstScience.textContent = "五号館";
+  library.textContent ="二号館";
 });
 
 window.addEventListener("keydown", function (e) {
@@ -170,18 +181,6 @@ function intoNext() {
       hit = true;
       ShowUI();
 
-      if (area.plane === "三連棟") {
-        title.textContent = "三号棟";
-      } else if (area.plane === "左下の棟") {
-        title.textContent = "四号棟";
-      } else if (area.plane === "中央の奴") {
-        title.textContent = "一号棟";
-      } else if (area.plane === "右下の棟") {
-        title.textContent = "二号棟";
-      } else if (area.plane === "右上の棟") {
-        title.textContent = "五号棟";
-      }
-
       button.addEventListener("click", function () {
         localStorage.setItem("storagePlane", area.plane);
         window.location.href = "/----------/html/classroom1.html";
@@ -197,11 +196,6 @@ function intoNext() {
 }
 
 //スマホ用、無駄が多いので書き換える可能性アリ
-const threeScience = document.getElementById("threeScience");
-const centerThree = document.getElementById("centerThree");
-const leftSmall = document.getElementById("leftSmall");
-const firstScience = document.getElementById("firstScience");
-const library = document.getElementById("library");
 
 //後でcssで触れられないように書き換えておく
 threeScience.addEventListener("click", function () {
