@@ -1,91 +1,106 @@
 @charset "UTF-8";
 
+/* ===== 共通：中央基準 ===== */
+#cover,
+#message img,
+#speak,
+#standImg,
+#standImg2,
+#backButton,
+#skip {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+/* ===== cover ===== */
 #cover{
     background-color: white;
-    position: absolute;
     opacity: 0.5;
     z-index: 999;
     width: 1250px;
     height: 570px;
-    top: 0;
-    left: 1%;
+    transform: translate(-50%, -50%) translate(-619px, -285px);
 }
+
+/* ===== メッセージ枠 ===== */
 #message img{
-    position: absolute;
     z-index: 1999;
     width: 100%;
     height: 150px;
-    top: 420px;
+    transform: translate(-50%, -50%) translate(0px, 135px);
 }
+
+/* ===== セリフ ===== */
 #speak{
-    position: absolute;
-    top: 430px;
-    left: 170px;
     z-index: 2000;
     white-space: pre-line;
+    transform: translate(-50%, -50%) translate(-455px, 145px);
 }
-/*性別*/
+
+/* ===== 立ち絵 ===== */
 #standImg{
-    position: absolute;
     width: 300px;
     height: 400px;
     z-index: 1999;
-    top: 50px;
-    left: 900px;
+    transform: translate(-50%, -50%) translate(275px, -235px);
 }
+
 #standImg2{
-    position: absolute;
     width: 400px;
     height: 400px;
     z-index: 1999;
-    top: 50px;
-    left: 900px;
+    transform: translate(-50%, -50%) translate(275px, -235px);
 }
+
+/* ===== 戻るボタン ===== */
 #backButton{
-    position: absolute;
     width: 300px;
     height: 50px;
-    left: 1%;
-    top: 500px;
+    transform: translate(-50%, -50%) translate(-619px, 215px);
 }
+
+/* ===== スキップ ===== */
 #skip{
-    position: absolute;
     z-index: 10000;
     width: 100px;
     height: 50px;
-    top: 30px;
-    left: 30px;
+    transform: translate(-50%, -50%) translate(-595px, -255px);
 }
+
+/* ===== スマホ横向き ===== */
 @media screen and (max-height:450px) and (orientation: landscape) {
+
 #cover{
     width: 610px;
     height: 300px;
-    top: 0;
-    left: 1%;
+    transform: translate(-50%, -50%) translate(-305px, -150px);
 }
+
 #message img{
-    width: 100%;
     height: 100px;
-    top: 200px;
+    transform: translate(-50%, -50%) translate(0px, 65px);
 }
+
 #standImg{
     width: 100px;
     height: 150px;
-    top: 50px;
-    left:450px;
+    transform: translate(-50%, -50%) translate(145px, -95px);
 }
-#speak{
-    top: 180px;
-    left: 100px;
-}
-#skip{
-    width: 100px;
-    height: 25px;
-}
+
 #standImg2{
     width: 180px;
     height: 180px;
-    top: 30px;
-    left:450px;
+    transform: translate(-50%, -50%) translate(145px, -95px);
+}
+
+#speak{
+    font-size: 1.17em;
+    transform: translate(-50%, -50%) translate(-225px, 65px);
+}
+
+#skip{
+    width: 100px;
+    height: 25px;
 }
 }
