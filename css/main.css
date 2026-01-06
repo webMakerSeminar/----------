@@ -109,7 +109,7 @@ width: 100%;
     display: block;
     position:absolute;
     background:transparent;
-    border: 2px solid black;
+    border:none;
     z-index: 30000;
     cursor:pointer;
   }

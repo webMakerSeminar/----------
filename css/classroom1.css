@@ -9,6 +9,7 @@
 }
 #switch button{
     position: absolute;
+    border: none;
 }
 .button{
     background: transparent;
