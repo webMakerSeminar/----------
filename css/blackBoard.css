@@ -2,9 +2,8 @@ body{
     background:white;
 }
 #blackBoard img{
-    left: 300px;
-    width: 550px;
-    height: 550px;
+    height: 100%;
+    width: 100%;
 }
 #movie{
     position:absolute;
