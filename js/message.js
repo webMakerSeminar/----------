@@ -45,8 +45,8 @@ if (!sessionStorage.getItem("tutorialSeen")) {
     tutorial.style.display = "block";
     sessionStorage.setItem("tutorialSeen", "true");
 } else {
-    standImg.style.display = "none";
-    standImg2.style.display = "none";
+    Human();
+    HiddenUI();
     tutorial.style.display = "none";
 }
 
