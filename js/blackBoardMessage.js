@@ -18,7 +18,7 @@ const gender = localStorage.getItem("gender");
 
 let type = "";
 
-let pattern = "";
+let patternPlane= "";
 let flag = 0;
 
 const talk = {
@@ -47,7 +47,7 @@ const talk = {
         "帰ったら、お腹いっぱいになるまで食べるぞー！"
     ],
     中央の奴長編:["これ、凄すぎないか！？",
-        "プロジェクションマッピングってやつだ！？\n俺は、テレビで見たことしかないよ",
+        "テレビとかでしか見ないプロジェクションマッピングってやつだよな！？",
         "くーここから出られたら絶対に見に行くって言うのに！",
         "ほら、お前も見てみろよ"
     ],
@@ -55,32 +55,53 @@ const talk = {
         "とにかく、すごいのはよくわかるよ。\nなんていうか、なんていうか凄い！ってことだけはね",
         "ほら、君も見て見なよ！"
     ],
-
+    中央の奴マッピング:["すごいな、プロジェクションマッピング。\nでも、出来れば写真じゃなくて動画で見たかったな",
+        "いや、もしかしたらどこかにあるのかもしれないな"
+    ],
+    中央の奴マッピング1:["おー、プロジェクションマッピングってこんな感じなんだ。","色とりどりで綺麗だし……あれ？\nもしかして、ここも風景が変わるのかな？"],
+    中央の奴カオス:["これは……プロジェクションマッピングを出すための機械かな？","プロジェクターだと思うけど\nこんな小さな機械から大きな映像が出てくるのは不思議なことだな。"],
+    中央の奴カオス1:["あっ！これ、授業で使ってる所みたことあるよ！","小さな機会なのに大きな映像を映し出せるなんてすごいね！","もしかして、私の姿もプロジェクターに写したら大きくなるの\nかな？"],
+    中央の奴ムービー:["映像が縦になって浮いてる！？","もう正直何でもありと思っていたが\nここまで摩訶不思議なことが起こるなんてな。",
+        "どうやら、これはプロジェクションマッピングの動画らしい。",
+        "人が踊っているのか？",
+        "とにかく見てみよう"
+    ],
+    中央の奴ムービー1:["わー映像が縦だ！？\nホワイトボードを突き抜けて映像が浮くことがあるんだね……",
+        "これ、プロジェクションマッピングの動画みたい",
+        "なんか動いてるような……？",
+        "って、ここもなんか変だね。\nもしかしたら、もう一度来てみたら何か起こるかもしれないね"
+    ]
 }
 
 
 
 window.addEventListener("load", function () {
     if(blackBoardPlane === "三連棟"){
-        pattern = blackBoardPlane;
+        patternPlane = blackBoardPlane;
         if(type === "カボチャ"){
-            pattern = pattern + type;
+            patternPlane = patternPlane + type;
         }else if (type ==="サトイモ"){
-            pattern = pattern +type;
+            patternPlane = patternPlane +type;
         }else if (type === "料理"){
-            pattern = pattern + type;
+            patternPlane = patternPlane + type;
         }
     }if(blackBoardPlane === "中央の奴"){
-        pattern = blackBoardPlane;
+        patternPlane = blackBoardPlane;
         if(type === "長編"){
-            pattern = pattern + type;
+            patternPlane = patternPlane + type;
+        }else if (type === "マッピング"){
+            patternPlane = patternPlane + type;
+        }else if (type === "カオス"){
+            patternPlane = patternPlane +type;
+        }else if (type === "ムービー"){
+            patternPlane = patternPlane +type ;
         }
     }
     if (gender === "男") {
         standImg2.style.display = "none";
     } else if (gender === "女") {
         standImg.style.display = "none";
-        pattern = pattern + "1";
+        patternPlane = patternPlane + "1";
     }
 });
 
@@ -96,9 +117,9 @@ standImg2.addEventListener("click", nextTalk);
 message.addEventListener("click", nextTalk);
 
 function nextTalk() {
-    speak.textContent = talk[pattern][flag];
+    speak.textContent = talk[patternPlane][flag];
     flag++;
-    if(flag === talk[pattern].length +1){
+    if(flag === talk[patternPlane].length +1){
         HiddenUI();
         Human();
         skip.style.display = "none";
@@ -114,5 +135,4 @@ function HiddenUI() {
     message.style.display = "none";
     took.style.display = "none";
     speak.style.display = "none";
-    skip.style.display = "none";
 }

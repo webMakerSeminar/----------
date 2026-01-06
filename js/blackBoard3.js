@@ -12,7 +12,11 @@ const planeImage = ["/----------/えちごimage/ホワイトボード加工済�
                 ];
 
 
-const movieCollect = ["/----------/movie/カボチャ.MOV"]
+const movieCollect = ["/----------/movie/カボチャ.MOV",
+        "/----------/駒大向上委員会/IMG_3405.MOV",
+]
+
+const komazawa = ["","/----------/駒大向上委員会/IMG_2950.jpg","/----------/駒大向上委員会/IMG_3403.jpg"]
 
 //画面を決定する
 window.addEventListener("load",function(){
@@ -22,5 +26,15 @@ window.addEventListener("load",function(){
         type = "カボチャ";
     }else if(blackBoardPlane === "中央の奴"){
         image3.src = planeImage[2];
+        const random = Math.floor(Math.random() * 3)
+        console.log(random);
+        if(random === 0){
+            movie.src = movieCollect[1];
+            type = "ムービー"
+        }else if (random === 1 || random === 2){
+            movie.style.display = "none";
+            image3.src = komazawa[random];
+            type = "カオス";
+        }
     }
 })
