@@ -62,7 +62,7 @@ window.addEventListener("load",function(){
         standImg.style.display = "none";
         pattern++;
     }
-    if(standImg.style.display === "none" && standImg2.style.display === "none"){
+    if(standImg.style.display === "none" && standImg2.style.display === "none" && window.innerHeight > 500){
         character.style.display = "block";
         localStorage.setItem("system",JSON.stringify(true));
     }
