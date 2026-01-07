@@ -21,6 +21,11 @@ const komazawa = [
     "/----------/駒大向上委員会/IMG_2953.jpg",
     "/----------/駒大向上委員会/IMG_2954.jpg",
 ]
+const ImageCollect = [
+    "/----------/数学と美/QRコード.png",
+    "/----------/数学と美/銅像.jpg",
+    "/----------/数学と美/話し合い.jpg"
+]
 
 let random = 0;
 
@@ -39,11 +44,12 @@ window.addEventListener("load", function () {
         image2.src = komazawa[random];
         type = "マッピング";
         movie.style.display = "none";
+    } else if (blackBoardPlane === "右下の棟"){
+        type = "話し合い";
+        image2.src = ImageCollect[2];
+        movie.style.display = "none";
     } else {
         image2.src = "/----------/謝罪の紙.png"
     }
-        /*if (blackBoardPlane === "右下の棟") {
-        image2.src = TVImage[1];
-    }
-        */
+
 });

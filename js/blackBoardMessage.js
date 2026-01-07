@@ -86,6 +86,17 @@ const talk = {
         "え？携帯で助けを求めればいいんじゃないかって？",
         "……不思議と出来ないんだよね。"
     ],
+    右下の棟話し合い:[
+        "おっ、誰かが話し合ってるみたいだ。",
+        "おーい、助けてくれないか！\n……って、これはただの写真みたいだな",
+        "それにしても、真剣に話し合っているな。\nこういう所から素晴らしい作品って言うのは生まれるんだろうな",
+    ],
+    右下の棟話し合い1:[
+        "あー！！誰かあそこで話し合ってる！",
+        "助けてくださーい……？\nって、ただの写真じゃん！ぬか喜びした……",
+        "それにしても、何だか楽しそう。",
+        "やっぱり、何か作る時ってその工程が楽しかったり\nするんだよね！"
+    ],
     ごめんなさい:["準備中って書いてあるな。","仕方ない、引き返すとしよう"],
     ごめんなさい1:["うーん、準備中かー","こんな時に！クレームを入れてやりたいところだけど……\n仕方ない、引き帰そ"]
 }
@@ -113,9 +124,16 @@ window.addEventListener("load", function () {
         }else if (type === "ムービー"){
             patternPlane = patternPlane +type ;
         }
-    }else {
+    }else if(blackBoardPlane === "右下の棟"){
+        patternPlane = blackBoardPlane;
+        if(type === "銅像"){
+            patternPlane = patternPlane +type;
+        }else if(type === "話し合い"){
+            patternPlane = patternPlane +type;
+        }else {
         patternPlane = "ごめんなさい"
         movie.style.display = "none";
+        }
     }
 
     if (gender === "男") {
