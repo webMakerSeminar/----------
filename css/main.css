@@ -31,6 +31,7 @@ width: 100%;
     z-index: 9997;
 }
 #explainUI {
+    position: absolute;
     display: none;
 }
 #tryUI{
@@ -105,8 +106,7 @@ width: 100%;
     font-size: 0.5em;
   } 
   #explainUI{
-        position: absolute;
-        left: 700px;
+        left:75%;
     }
     #smartPhone{
     inset: 0;
