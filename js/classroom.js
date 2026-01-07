@@ -161,4 +161,5 @@ function checkButton() {
 function HorrorTalk(){
     appearUI();
     pattern = gender;
+    flag = 0;
 }
