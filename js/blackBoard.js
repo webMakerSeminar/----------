@@ -44,6 +44,6 @@ window.addEventListener("load", function () {
         document.body.appendChild(img);
         type = "銅像"
     }else{
-        image.src = "/謝罪の紙.png"
+        image.src = "/----------/謝罪の紙.png"
     }
 });
