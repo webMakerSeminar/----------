@@ -105,10 +105,10 @@ window.addEventListener("load", function () {
         allClass?.classList.add("upRight");
         allClass1?.classList.add("upRight1");
         allClass2?.classList.add("upRight2");
-        allClass3?.classList.add("upRight3");
 
         if (random <= 2) {
             rightRandom = "ダーク";
+            allClass3?.classList.add("upRight3");
         }
     }
 
