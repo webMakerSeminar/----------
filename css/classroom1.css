@@ -129,7 +129,7 @@
 
 /* 表示時のアニメーション */
 #horrorImage.active {
-    animation: scareZoom 2.5s forwards;
+    animation: scareZoom 0.5s forwards;
 }
 
 @keyframes scareZoom {

@@ -70,7 +70,7 @@ window.addEventListener("load",function(){
         }
     }else if(storagePlane === "中央の奴"){
         pattern = "中央の奴";
-        
+
     }else if(storagePlane === "左下の棟"){
         pattern = "左下の棟";
         if(rightRandom === "ダーク"){
@@ -160,4 +160,12 @@ function HiddenUI(){
     speak.style.display = "none";
     took.style.display = "none";
     skip.style.display = "none";
+}
+function appearUI(){
+    standImg.style.display = "block";
+    standImg2.style.display = "block";
+    message.style.display = "block";
+    speak.style.display = "block";
+    took.style.display = "block";
+    skip.style.display = "block";
 }

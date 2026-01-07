@@ -36,6 +36,16 @@ const planeImage = {
     ]
 };
 
+
+horrorSpeak = {
+    男:["うぉ！？、なんだアイツ！？",
+    "どうやら、俺たちは歓迎されていないみたいだな。"
+    ],
+
+    女:["きゃっ！？私たちの味方……な、わけないよね",
+    "出てけってことなのかな？"]
+}
+
 let time = "";
 let rightRandom = "";
 
@@ -149,8 +159,20 @@ button3?.addEventListener("click", () => {
     horrorImage.classList.remove("active");
     void horrorImage.offsetWidth;
     horrorImage.classList.add("active");
+    HorrorTalk();
 });
 
 function checkButton() {
     localStorage.setItem("blackBoardPlane", storagePlane);
+}
+
+function HorrorTalk(){
+    appearUI();
+    pattern = gender;
+    speak.textContent = horrorSpeak[pattern][flag];
+    flag++;
+    if(flag === talk[pattern].length + 1){
+        HiddenUI();
+        Human();
+    }
 }
