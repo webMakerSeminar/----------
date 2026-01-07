@@ -10,12 +10,29 @@ const leftSmall = document.getElementById("leftSmall");
 const firstScience = document.getElementById("firstScience");
 const library = document.getElementById("library");
 
+const innerImage = document.getElementById("innerImage");
+const innerImage2 = document.getElementById("innerImage2");
+const innerImage3 = document.getElementById("innerImage3");
+
+const innerTitle = document.getElementById("innerTitle");
+const innerTitle2 = document.getElementById("innerTitle2");
+const innerTitle3 = document.getElementById("innerTitle3");
+
 //localStorage.setItem("system",controller)
 //const gender = localStorage.getItem("gender");
 
 let x = 0,
     y = 0;
 const speed = 15;
+
+const innerPlane = {
+  三連棟:["/----------/駒大向上委員会/IMG_2951.jpg",
+  "/----------/駒大向上委員会/IMG_2952.jpg",
+  "/----------/駒大向上委員会/IMG_2953.jpg",
+  "/----------/駒大向上委員会/IMG_2954.jpg"
+],
+
+}
 
 const walkImages = {
   up: ["/----------/img/学生背後.png"],
@@ -237,6 +254,10 @@ button.addEventListener("click", function () {
 
 function ShowUI() {
   explainUI.style.display = "block";
+  if(title.textContent === "中央の奴"){
+    innerImage.src = innerPlane[title.textContent][0];
+    innerTitle.textContent = "P.M!?"
+  }
 }
 
 function HideUI() {
