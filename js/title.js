@@ -40,17 +40,17 @@ direction.addEventListener("click",function(){
 cover.addEventListener("click",function(){
     if(!manSelecting){
         return
-    }else if(count === 0 && flag === 4){
+    }else if(count === 0 && flag === 2){
         console.log(talk[count][flag]);
         woman.style.display = "block";
         man.style.display = "block";
         manSelecting = false;
         flag=0;
-    }else if(count === 1 || count === 4){
+    }else if(count === 1 || count === 2){
         console.log(talk[count][flag]);
-        count = 5;
+        count = 3;
         speak.textContent = talk[count][flag];
-    }else if(count === 5){
+    }else if(count === 3){
         cover.style.display = "none";
         message.style.display = "none";
         speak.style.display = "none";
