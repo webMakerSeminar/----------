@@ -28,7 +28,7 @@ const speed = 15;
 const innerPlane = {
   三連棟:["/----------/駒大向上委員会/IMG_2951.jpg",
   "/----------/駒大向上委員会/IMG_2952.jpg",
-  "/----------/駒大向上委員会/IMG_2953.jpg",
+  "/----------/駒大向上委員会/IMG_2950.jpg",
   "/----------/駒大向上委員会/IMG_2954.jpg"
 ],
 
@@ -256,7 +256,11 @@ function ShowUI() {
   explainUI.style.display = "block";
   if(title.textContent === "中央の奴"){
     innerImage.src = innerPlane[title.textContent][0];
-    innerTitle.textContent = "P.M!?"
+    innerTitle.textContent = "駒大向上委員会！"
+    innerImage2.src = innerPlane[title.textContent][1];
+    innerTitle2.textContent = "P.M!?"
+    innerImage3.src = innerPlane[title.textContent][2];
+    innerTitle3.textContent = "プロジェクター"
   }
 }
 
