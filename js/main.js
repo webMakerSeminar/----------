@@ -271,6 +271,13 @@ function ShowUI() {
     innerTitle2.textContent = "野菜で音！？"
     innerImage3.src = innerPlane[title.textContent][2];
     innerTitle3.textContent = "美味しく食べました"
+  }else{
+    innerImage.src = "/----------/img/魔法未設定.png";
+    innerTitle.textContent = "？？？"
+    innerImage2.src = "/----------/img/魔法未設定.png";
+    innerTitle2.textContent = "？？？"
+    innerImage3.src = "/----------/img/魔法未設定.png";
+    innerTitle3.textContent = "？？？"
   }
 }
 

@@ -100,7 +100,10 @@ width: 100%;
   #scene img{
         width: 800px;
         height: 420px;
-  }  
+  } 
+  #innerTitle{
+    font-size: 0.5em;
+  } 
   #explainUI{
         position: absolute;
         left: 700px;
