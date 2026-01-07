@@ -55,6 +55,10 @@ let talk ={
     右下の棟朝1:["ここはどうやら変化し続ける空間みたいだね。","朝、昼、晩、それだけじゃない。他の教室に行くと何か起こるんじゃないかな？"],
     右下の棟昼1:["見てみて、外はお昼みたいだね","……他の時間だと変わるのかな？"],
     右下の棟夜1:["夜はね……要注意だよ！！","何せね、お化けさんたちのホームページ？ってやつなんだから","何か物に触る時は慎重に……慎重にね！"],
+    ホラートーク男:["うぉ！？、なんだアイツ！？",
+    "どうやら、俺たちは歓迎されていないみたいだな。"],
+    ホラートーク女:["きゃっ！？私たちの味方……な、わけないよね",
+    "出てけってことなのかな？"],
 }
 console.log(talk.length);
 
@@ -162,8 +166,11 @@ function HiddenUI(){
     skip.style.display = "none";
 }
 function appearUI(){
-    standImg.style.display = "block";
-    standImg2.style.display = "block";
+    if(gender === "男"){
+        standImg.style.display = "block";
+    }else{
+        standImg2.style.display = "block";
+    }
     message.style.display = "block";
     speak.style.display = "block";
     took.style.display = "block";
