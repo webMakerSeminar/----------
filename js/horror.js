@@ -1,11 +1,21 @@
 //ここに、ホラー演出を集中させる。
 
 const despairImage = {
-    男:[],
-    女:[]
+    男:["/----------/speakImage/男違和感弱.png",
+        "/----------/speakImage/男違和感中.png",
+        "/----------/speakImage/男違和感強.png",
+        "/----------/speakImage/男首.png",
+        "/----------/speakImage/男首白目.png",
+    ],
+    女:["/----------/speakImage/女違和感弱.png",
+        "/----------/speakImage/女違和感中.png",
+        "/----------/speakImage/女違和感強.png",
+        "/----------/speakImage/女攻撃.png",
+    ]
 }
 
-
+const timeImage = document.createElement("img");
+timeImage.id = "timeTiming";
 
 
 // ------------------------------
