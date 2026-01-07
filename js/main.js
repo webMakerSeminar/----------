@@ -26,11 +26,13 @@ let x = 0,
 const speed = 15;
 
 const innerPlane = {
-  三連棟:["/----------/駒大向上委員会/IMG_2951.jpg",
+  中央の奴:["/----------/駒大向上委員会/IMG_2951.jpg",
   "/----------/駒大向上委員会/IMG_2952.jpg",
   "/----------/駒大向上委員会/IMG_2950.jpg",
-  "/----------/駒大向上委員会/IMG_2954.jpg"
+  "/----------/駒大向上委員会/IMG_2954.jpg",
+  "/----------/プロジェクションマッピング.png"
 ],
+三連棟:["/----------/カボチャ.png","/----------/サトイモ.png","/----------/料理.png"],
 
 }
 
@@ -259,14 +261,23 @@ function ShowUI() {
     innerTitle.textContent = "駒大向上委員会！"
     innerImage2.src = innerPlane[title.textContent][1];
     innerTitle2.textContent = "P.M!?"
-    innerImage3.src = innerPlane[title.textContent][2];
+    innerImage3.src = innerPlane[title.textContent][4];
     innerTitle3.textContent = "プロジェクター"
+  }else if(title.textContent === "三連棟"){
+    innerImage.src = innerPlane[title.textContent][0];
+    innerTitle.textContent = "音グループ！"
+    innerImage2.src = innerPlane[title.textContent][1];
+    innerTitle2.textContent = "野菜で音！？"
+    innerImage3.src = innerPlane[title.textContent][2];
+    innerTitle3.textContent = "美味しく食べました"
   }
 }
 
 function HideUI() {
   explainUI.style.display = "none";
 }
+
+
 
 //デバッグ用
 let keys = { ctrl: false, q: false, m: false, shift: false };
