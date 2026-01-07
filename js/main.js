@@ -32,7 +32,13 @@ const innerPlane = {
   "/----------/駒大向上委員会/IMG_2954.jpg",
   "/----------/駒大向上委員会/プロジェクションマッピング.png"
 ],
+一号棟:["/----------/駒大向上委員会/IMG_2951.jpg",
+  "/----------/駒大向上委員会/IMG_2952.jpg",
+  "/----------/駒大向上委員会/IMG_2950.jpg",
+  "/----------/駒大向上委員会/IMG_2954.jpg",
+  "/----------/駒大向上委員会/プロジェクションマッピング.png"],
 三連棟:["/----------/movie/カボチャ.png","/----------/movie/サトイモ.png","/----------/movie/料理.png"],
+三号棟:["/----------/movie/カボチャ.png","/----------/movie/サトイモ.png","/----------/movie/料理.png"],
 
 }
 
@@ -229,27 +235,27 @@ function intoNext() {
 //後でcssで触れられないように書き換えておく
 threeScience.addEventListener("click", function () {
   title.textContent = threeScience.textContent;
-  ShowUI();
+  smartShowUI();
 });
 
 centerThree.addEventListener("click", function () {
   title.textContent = centerThree.textContent;
-  ShowUI();
+  smartShowUI();
 });
 
 leftSmall.addEventListener("click", function () {
   title.textContent = leftSmall.textContent;
-  ShowUI();
+  smartShowUI();
 });
 
 firstScience.addEventListener("click", function () {
   title.textContent = firstScience.textContent;
-  ShowUI();
+  smartShowUI();
 });
 
 library.addEventListener("click", function () {
   title.textContent = library.textContent;
-  ShowUI();
+  smartShowUI();
 });
 
 button.addEventListener("click", function () {
@@ -258,6 +264,34 @@ button.addEventListener("click", function () {
 });
 
 function ShowUI() {
+  console.log("起動しました");
+  console.log(title.textContent);
+  explainUI.style.display = "block";
+  if(title.textContent === "一号棟"){
+    innerImage.src = innerPlane[title.textContent][0];
+    innerTitle.textContent = "駒大向上委員会！"
+    innerImage2.src = innerPlane[title.textContent][1];
+    innerTitle2.textContent = "P.M!?"
+    innerImage3.src = innerPlane[title.textContent][4];
+    innerTitle3.textContent = "プロジェクター"
+  }else if(title.textContent === "三号棟"){
+    innerImage.src = innerPlane[title.textContent][0];
+    innerTitle.textContent = "音グループ！"
+    innerImage2.src = innerPlane[title.textContent][1];
+    innerTitle2.textContent = "野菜で音！？"
+    innerImage3.src = innerPlane[title.textContent][2];
+    innerTitle3.textContent = "美味しく食べました"
+  }else{
+    innerImage.src = "/----------/img/魔法未設定.png";
+    innerTitle.textContent = "？？？"
+    innerImage2.src = "/----------/img/魔法未設定.png";
+    innerTitle2.textContent = "？？？"
+    innerImage3.src = "/----------/img/魔法未設定.png";
+    innerTitle3.textContent = "？？？"
+  }
+}
+
+function smartShowUI() {
   console.log("起動しました");
   console.log(title.textContent);
   explainUI.style.display = "block";
