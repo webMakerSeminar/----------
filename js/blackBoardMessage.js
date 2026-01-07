@@ -104,6 +104,7 @@ const talk = {
 
 
 window.addEventListener("load", function () {
+    flag = 0;
     if(blackBoardPlane === "三連棟"){
         patternPlane = blackBoardPlane;
         if(type === "カボチャ"){
