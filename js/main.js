@@ -334,6 +334,9 @@ function smartShowUI() {
     innerImage3.src = innerPlane[title.textContent][0];
     innerTitle3.textContent = "アンケート！！"
   }else if(title.textContent === "右上の棟"){
+    innerImage.src = "/----------/img/魔法未設定.png";
+    innerImage2.src = "/----------/img/魔法未設定.png";
+    innerImage3.src = "/----------/img/魔法未設定.png";
     innerTitle.textContent = "入ルな"
     innerTitle2.textContent = "お前の隣……"
     innerTitle3.textContent = "逃ゲロ"
