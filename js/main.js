@@ -74,6 +74,9 @@ window.addEventListener("load", function () {
   } else if (gender === "女") {
     character.src = "/----------/walkImage/女の子2.png";
   }
+  if(window.innerHeight <500){
+    character.style.display = "none";
+  }
 });
 
 window.addEventListener("keydown", function (e) {
