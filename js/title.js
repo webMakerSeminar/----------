@@ -21,8 +21,7 @@ const woman =document.getElementById("woman")
 const direction = document.getElementById("direction");
 
 const talk = [
-    ["教養ゼミ（１）の世界へようこそ"],
-    ["まずは性別から選んでね","男の子と女の子どっちにする？"],
+    ["教養ゼミ（１）の世界へようこそ","まずは性別から選んでね","男の子と女の子どっちにする？"],
     ["男の子を選んだんだね"],
     ["女の子を選んだんだね"],
     ["それじゃあ行こうか教養ゼミ（１）の世界に"]
@@ -41,17 +40,17 @@ direction.addEventListener("click",function(){
 cover.addEventListener("click",function(){
     if(!manSelecting){
         return
-    }else if(count === 0 && flag === 3){
+    }else if(count === 0 && flag === 4){
         console.log(talk[count][flag]);
         woman.style.display = "block";
         man.style.display = "block";
         manSelecting = false;
         flag=0;
-    }else if(count === 1 || count === 3){
+    }else if(count === 1 || count === 4){
         console.log(talk[count][flag]);
-        count = 3;
+        count = 5;
         speak.textContent = talk[count][flag];
-    }else if(count === 3){
+    }else if(count === 5){
         cover.style.display = "none";
         message.style.display = "none";
         speak.style.display = "none";
