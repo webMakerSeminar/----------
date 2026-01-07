@@ -259,6 +259,7 @@ button.addEventListener("click", function () {
 
 function ShowUI() {
   console.log("起動しました");
+  console.log(title.textContent);
   explainUI.style.display = "block";
   if(title.textContent === "中央の奴"){
     innerImage.src = innerPlane[title.textContent][0];
