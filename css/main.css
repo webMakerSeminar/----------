@@ -58,6 +58,9 @@ width: 100%;
     height: 50px;
     z-index: 101;
 }
+#innerTitle{
+  font-size: 1.5em;
+}
 #explainUI{
   z-index: 101;
 }
@@ -165,7 +168,7 @@ width: 100%;
 }
 #windowUI{
     width: 100px;
-    height: 220px;
+    height: 290px;
 }
 #count{
   display: none;

@@ -41,13 +41,13 @@ direction.addEventListener("click",function(){
 cover.addEventListener("click",function(){
     if(!manSelecting){
         return
-    }else if(count === 0 && flag === 2){
+    }else if(count === 0 && flag === 3){
         console.log(talk[count][flag]);
         woman.style.display = "block";
         man.style.display = "block";
         manSelecting = false;
         flag=0;
-    }else if(count === 1 || count === 2){
+    }else if(count === 1 || count === 3){
         console.log(talk[count][flag]);
         count = 3;
         speak.textContent = talk[count][flag];
