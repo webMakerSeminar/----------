@@ -42,6 +42,7 @@ window.addEventListener("load", function () {
         movie.style.display = "none";
         image.src = ImageCollect[1];
         document.body.appendChild(img);
+        type = "銅像"
     }else{
         image.src = "/謝罪の紙.png"
     }
