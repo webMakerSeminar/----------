@@ -79,7 +79,7 @@
 }
 
 #took{
-    transform: translate(-50%, -50%) translate(50%, 80vh);
+    transform: translate(-50%, -50%) translate(50%, 300%);
     height: 100px;
 }
 
