@@ -114,7 +114,11 @@ standImg2.addEventListener("click",function(){
 skip.addEventListener("click",function(){
     HiddenUI();
     Human();
+    if(window.innerHeight < 550){
+        return
+    }else{
     character.style.display = "block";
+    }
     localStorage.setItem("system", JSON.stringify(true));
 })
 
