@@ -39,7 +39,13 @@ const innerPlane = {
   "/----------/駒大向上委員会/プロジェクションマッピング.png"],
 三連棟:["/----------/movie/カボチャ.png","/----------/movie/サトイモ.png","/----------/movie/料理.png"],
 三号棟:["/----------/movie/カボチャ.png","/----------/movie/サトイモ.png","/----------/movie/料理.png"],
-
+二号棟:["/----------/数学と美/QRコード.png",
+  "/----------/数学と美/銅像.jpg",
+  "/----------/数学と美/話し合い.jpg"
+],
+右下の棟:["/----------/数学と美/QRコード.png",
+  "/----------/数学と美/銅像.jpg",
+  "/----------/数学と美/話し合い.jpg"],
 }
 
 const walkImages = {
@@ -281,6 +287,13 @@ function ShowUI() {
     innerTitle2.textContent = "野菜で音！？"
     innerImage3.src = innerPlane[title.textContent][2];
     innerTitle3.textContent = "美味しく食べました"
+  }else if(title.textContent === "二号棟"){
+    innerImage.src = innerPlane[title.textContent][2];
+    innerTitle.textContent = "数学と美！"
+    innerImage2.src = innerPlane[title.textContent][1];
+    innerTitle2.textContent = "銅像たち…？"
+    innerImage3.src = innerPlane[title.textContent][0];
+    innerTitle3.textContent = "アンケート！！"
   }else{
     innerImage.src = "/----------/img/魔法未設定.png";
     innerTitle.textContent = "？？？"
@@ -309,6 +322,13 @@ function smartShowUI() {
     innerTitle2.textContent = "野菜で音！？"
     innerImage3.src = innerPlane[title.textContent][2];
     innerTitle3.textContent = "美味しく食べました"
+  }else if(title.textContent === "右下の奴"){
+    innerImage.src = innerPlane[title.textContent][2];
+    innerTitle.textContent = "数学と美！"
+    innerImage2.src = innerPlane[title.textContent][1];
+    innerTitle2.textContent = "銅像たち…？"
+    innerImage3.src = innerPlane[title.textContent][0];
+    innerTitle3.textContent = "アンケート！！"
   }else{
     innerImage.src = "/----------/img/魔法未設定.png";
     innerTitle.textContent = "？？？"
