@@ -107,6 +107,10 @@
     #titleImage{
     height: 900px;
     }
+    #button{
+    height: 700px;
+    transform: translate(-50%, -50%) translate(-418px, 0px);
+    }
 }
 
 @media screen and (max-height:800px) and (orientation: landscape) {
