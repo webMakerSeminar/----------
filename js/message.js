@@ -86,6 +86,7 @@ window.addEventListener("load",function(){
     if(standImg.style.display === "none" && standImg2.style.display === "none" && window.innerHeight > 500){
         character.style.display = "block";
         localStorage.setItem("system",JSON.stringify(true));
+        console.log("起動");
     }
 })
 
