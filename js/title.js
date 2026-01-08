@@ -1,6 +1,9 @@
 document.getElementById("button").addEventListener("click",function(){ 
     window.location.href = "/----------/html/main.html";
     console.log("移動");
+  localStorage.setItem("horror_clock_start", Date.now());
+sessionStorage.removeItem("horror_scene_start");
+currentImageIndex = -1;
 })
 document.getElementById("clockButton").addEventListener("click",function(){
     

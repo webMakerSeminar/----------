@@ -15,8 +15,24 @@ const despairImage = {
 }
 
 
+
+
+const SCENE_START_KEY = "horror_scene_start";
+
+let sceneStartTime = sessionStorage.getItem(SCENE_START_KEY);
+if (!sceneStartTime) {
+  sceneStartTime = Date.now();
+  sessionStorage.setItem(SCENE_START_KEY, sceneStartTime);
+} else {
+  sceneStartTime = Number(sceneStartTime);
+}
+
+
+console.log(gender);
+const IMAGE_SWITCH_TIME = 1* 60 * 1000;
+let currentImageIndex = -1;
 // ===== 設定 =====
-const FULL_ROTATION_TIME = 10 * 60 * 1000; // 10分
+let FULL_ROTATION_TIME = 1 * 60 * 1000; // 10分
 const STORAGE_KEY = "horror_clock_start";
 
 // ===== 開始時刻を取得 or 保存 =====
@@ -45,6 +61,38 @@ clockHand.src = "/----------/horrorImage/赤い針真っすぐ.png"; // ←血�
 clockHand.className = "clock-hand";
 clockWrapper.appendChild(clockHand);
 
+
+function updateDespairImage() {
+  const images = despairImage[gender];
+  if (!images) return;
+
+  const elapsed = Date.now() - sceneStartTime;
+
+  const index = Math.floor(elapsed / IMAGE_SWITCH_TIME);
+  const fixedIndex = Math.min(index, images.length - 1);
+
+  if (fixedIndex === currentImageIndex) return;
+
+  currentImageIndex = fixedIndex;
+
+  console.log(fixedIndex);
+  if (gender === "男") {
+    if(fixedIndex === 4){
+        fixedIndex = 0;
+        console.log("消去");
+    }else{
+        standImg.src = images[fixedIndex];
+    }
+  } else {
+    if(fixedIndex === 4){
+        fixedIndex = 0;
+    }else{
+        standImg2.src = images[fixedIndex];
+    }
+  }
+}
+
+
 // ===== 回転処理 =====
 function rotate() {
   const now = Date.now();
@@ -55,6 +103,10 @@ function rotate() {
 
   clockHand.style.transform =
     `translate(-50%, -100%) rotate(${angle}deg)`;
+
+    
+  // ★ これを必ず入れる
+  updateDespairImage(elapsed);
 
   requestAnimationFrame(rotate);
 }
