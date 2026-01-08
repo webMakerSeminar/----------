@@ -93,14 +93,12 @@ function updateDespairImage() {
         console.log("消去");
     }else{
         standImg.src = images[fixedIndex];
-        appearUI();
     }
   } else {
     if(fixedIndex === 4){
         fixedIndex = 0;
     }else{
         standImg2.src = images[fixedIndex];
-        appearUI();
     }
   }
 }
