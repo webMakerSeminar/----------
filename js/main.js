@@ -240,7 +240,7 @@ button.addEventListener("click", function () {
 
   localStorage.setItem("storagePlane", currentPlane);
 
-  const blockedPlanes = ["左下の棟", "右下の棟"];
+  const blockedPlanes = ["左下の棟"];
 
   if (!blockedPlanes.includes(currentPlane)) {
     window.location.href = "/----------/html/classroom1.html";
@@ -257,6 +257,7 @@ button.addEventListener("click", function () {
     message.style.display = "block";
     speak.style.display = "block";
     took.style.display = "block";
+    character.style.display = "none";
   }
 });
 
