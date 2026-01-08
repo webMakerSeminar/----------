@@ -208,42 +208,50 @@ function intoNext() {
   for (const area of build) {
     if (x < area.x1 && x > area.x2 && y > area.y1 && y < area.y2) {
       hit = true;
-      currentPlane = area.plane; // ← ここだけ
+currentPlane = area.plane;
 
       ShowUI();
 
-      if (area.plane === "三連棟") title.textContent = "三号棟";
-      else if (area.plane === "左下の棟") title.textContent = "四号棟";
-      else if (area.plane === "中央の奴") title.textContent = "一号棟";
-      else if (area.plane === "右下の棟") title.textContent = "二号棟";
-      else if (area.plane === "右上の棟") title.textContent = "五号棟";
+      if (area.plane === "三連棟") {
+        title.textContent = "三号棟";
+      } else if (area.plane === "左下の棟") {
+        title.textContent = "四号棟";
+      } else if (area.plane === "中央の奴") {
+        title.textContent = "一号棟";
+      } else if (area.plane === "右下の棟") {
+        title.textContent = "二号棟";
+      } else if (area.plane === "右上の棟") {
+        title.textContent = "五号棟";
+      }
 
+
+      console.log(area.plane);
       break;
     }
   }
 
-  if (!hit) {
-    currentPlane = null;
-    HideUI();
-  }
+  if (hit) ShowUI();
+  else HideUI();
 }
 
-let currentPlane = null;
 
 button.addEventListener("click", function () {
   if (!currentPlane) return;
 
   localStorage.setItem("storagePlane", currentPlane);
 
-  if (currentPlane !== "四号棟" && currentPlane !=="左下の棟") {
-    console.log("入る");
+  const blockedPlanes = ["左下の棟", "右下の棟"];
+
+  if (!blockedPlanes.includes(currentPlane)) {
     window.location.href = "/----------/html/classroom1.html";
-  } else {
+  }else{
     if(gender === "男"){
       standImg.style.display = "block";
+      flag = 0;
       pattern = 3;
     }else{
       standImg2.style.display = "block";
+      flag = 0;
       pattern = 4;
     }
     message.style.display = "block";
@@ -251,34 +259,39 @@ button.addEventListener("click", function () {
     took.style.display = "block";
   }
 });
-//スマホ用、無駄が多いので書き換える可能性アリ
+
+
 
 //後でcssで触れられないように書き換えておく
-threeScience.addEventListener("click", function () {
-  title.textContent = threeScience.textContent;
+threeScience.addEventListener("click", () => {
+  currentPlane = "三連棟";
+  title.textContent = "三号棟";
   smartShowUI();
 });
 
 centerThree.addEventListener("click", function () {
-  title.textContent = centerThree.textContent;
+  currentPlane = "中央の奴";
+  title.textContent = "中央の奴";
   smartShowUI();
 });
 
 leftSmall.addEventListener("click", function () {
-  title.textContent = leftSmall.textContent;
+  currentPlane = "左下の棟";
+  title.textContent = "左下の棟";
   smartShowUI();
 });
 
 firstScience.addEventListener("click", function () {
-  title.textContent = firstScience.textContent;
+  currentPlane = "右上の棟";
+  title.textContent = "右上の棟";
   smartShowUI();
 });
 
 library.addEventListener("click", function () {
-  title.textContent = library.textContent;
+  currentPlane = "右下の棟";
+  title.textContent = "右下の棟";
   smartShowUI();
 });
-
 
 
 function ShowUI() {

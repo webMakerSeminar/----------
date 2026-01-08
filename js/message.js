@@ -23,7 +23,6 @@ const gender = localStorage.getItem("gender");
 let flag = 0;
 let pattern = 0;
 
-const wareHouse = ["/speakImage/立ち絵男1.png","/speakImage/立ち絵女2.png"];
 
 localStorage.setItem("system", JSON.stringify(false));
 
@@ -147,6 +146,7 @@ function Human(){
 //試験2
 function HiddenUI(){
     message.style.display = "none";
+    speak.textContent = "";
     speak.style.display = "none";
     took.style.display ="none";
     skip.style.display = "none";
