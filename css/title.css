@@ -45,8 +45,8 @@
 #speak{
     z-index: 100300;
     position: absolute;
-    left: 30vh;
-    top: 70vh;        
+    left: 15%;
+    top: 70%;        
 }
 
 /* ===== overlay ===== */
@@ -67,12 +67,10 @@
 /* ===== message image ===== */
 #message{
     position: absolute;
-    left: 50%;
     top: 70vh;
     width: 100%;
     height:150px;;
     z-index: 9999;      /* ← ここが確実に効く */
-    transform: translateX(-50%);
 }
 
 /* ===== title image ===== */
@@ -108,7 +106,6 @@
 #speak{
         font-size: 1.17em;
         top: 120px;
-        transform: translateX(-50%);
 }
 
 #button{
@@ -148,13 +145,10 @@
 
 }
 #speak{
-        top: 70vh;
         font-size: 1.5em;
-        left: 15%;
 }
 #message{
-    left: 50%;
-    top: 70vh;
+    top: 70%;
     width: 100%;
     height:100px;;
 }
@@ -171,7 +165,7 @@
 }
 }
 /* ======== 高さ300px以下・横向き ======== */
-@media screen and (max-height:360px) and (orientation: landscape) {
+@media screen and (max-height:350px) and (orientation: landscape) {
 
 #man{
     height: 200px;
@@ -193,13 +187,12 @@
 
 }
 #speak{
-        top: 60vh;
+        top: 70%;
         font-size: 1.5em;
         left: 35vh;
 }
 #message{
-    left: 50%;
-    top: 60vh;
+    top: 70%;
     width: 100%;
     height:100px;;
 }
