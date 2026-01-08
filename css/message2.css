@@ -97,24 +97,23 @@
 }
 
 #took{
-    transform: translate(-50%, -50%) translate(50%, 80vh);
     height: 100px;
 }
 
 #standImg{
         width: 200px;
         height: 250px;
-        transform: translate(-50%, -50%) translate(70vh, -15vh);
+
 }
 
 #standImg2{
         width: 280px;
         height: 280px;
-        transform: translate(-50%, -50%) translate(70vh, -15vh);
+
 }
 
 #speak{
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 #skip{
@@ -135,25 +134,25 @@
 
 #took{
         height: 100px;
-        transform: translate(-50%, -50%) translate(50%, 265%);
+        top: 69%;
 }
 
 #standImg{
         width: 150px;
         height: 200px;
-        transform: translate(-50%, -50%) translate(150%, -25%);
+        transform: translate(-50%, -50%) translate(110%, 45%);
 }
 
 #standImg2{
-        width: 200px;
+        width: 150px;
         height: 200px;
-        transform: translate(-50%, -50%) translate(150%, -25%);
+        transform: translate(-50%, -50%) translate(110%, 45%);
 }
 
 #speak{
-        font-size: 1.1em;
+        font-size: 1.5em;
         left: 15%;
-        top: 64%;
+        top: 68%;
 }
 
 #skip{
