@@ -29,16 +29,16 @@
     width: 300px;
     height: 400px;
     z-index: 1999;
-    top: 30%;
-    left: 900px;
+    top: 15%;
+    left: 70%
 }
 #standImg2{
     position: absolute;
     width: 400px;
     height: 400px;
     z-index: 1999;
-    top: 30%;
-    left: 900px;
+    top: 15%;
+    left: 70%
 }
 #backButton{
     position: absolute;
@@ -56,7 +56,12 @@
     left: 30px;
 }
 @media screen and (max-width:1440px) and (min-height:700px){
-    
+#standImg{
+    top:30%
+}
+#standImg2{
+    top: 30%;
+}
 }
 @media screen and (max-height:450px) and (orientation: landscape) {
 #cover{
