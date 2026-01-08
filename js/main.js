@@ -231,8 +231,25 @@ function intoNext() {
 let currentPlane = null;
 
 button.addEventListener("click", function () {
-        localStorage.setItem("storagePlane", area.plane);
-        window.location.href = "/----------/html/classroom1.html";
+  if (!currentPlane) return;
+
+  localStorage.setItem("storagePlane", currentPlane);
+
+  if (currentPlane !== "四号棟" && currentPlane !=="左下の棟") {
+    console.log("入る");
+    window.location.href = "/----------/html/classroom1.html";
+  } else {
+    if(gender === "男"){
+      standImg.style.display = "block";
+      pattern = 3;
+    }else{
+      standImg2.style.display = "block";
+      pattern = 4;
+    }
+    message.style.display = "block";
+    speak.style.display = "block";
+    took.style.display = "block";
+  }
 });
 //スマホ用、無駄が多いので書き換える可能性アリ
 
