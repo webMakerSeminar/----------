@@ -18,6 +18,8 @@ const ImageCollect = [
     "/----------/数学と美/話し合い.jpg"
 ]
 
+const mapVer = ["/----------/img/地図ver2.png"];
+
 const img = document.createElement("img");
 img.src = ImageCollect[0];
 img.alt = "説明文";
@@ -43,8 +45,11 @@ window.addEventListener("load", function () {
         image.src = ImageCollect[1];
         document.body.appendChild(img);
         type = "銅像"
-    }else{
-        image.src = "/----------/謝罪の紙.png"
+    }else if(blackBoardPlane === "右上の棟"){
         movie.style.display = "none";
+        image.src = mapVer[0];
+        type = "地図"
+    }else{
+        image.src = "/謝罪の紙.png"
     }
 });
