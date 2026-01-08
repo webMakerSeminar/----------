@@ -208,34 +208,32 @@ function intoNext() {
   for (const area of build) {
     if (x < area.x1 && x > area.x2 && y > area.y1 && y < area.y2) {
       hit = true;
+      currentPlane = area.plane; // ← ここだけ
+
       ShowUI();
 
-      if (area.plane === "三連棟") {
-        title.textContent = "三号棟";
-      } else if (area.plane === "左下の棟") {
-        title.textContent = "四号棟";
-      } else if (area.plane === "中央の奴") {
-        title.textContent = "一号棟";
-      } else if (area.plane === "右下の棟") {
-        title.textContent = "二号棟";
-      } else if (area.plane === "右上の棟") {
-        title.textContent = "五号棟";
-      }
+      if (area.plane === "三連棟") title.textContent = "三号棟";
+      else if (area.plane === "左下の棟") title.textContent = "四号棟";
+      else if (area.plane === "中央の奴") title.textContent = "一号棟";
+      else if (area.plane === "右下の棟") title.textContent = "二号棟";
+      else if (area.plane === "右上の棟") title.textContent = "五号棟";
 
-      button.addEventListener("click", function () {
-        localStorage.setItem("storagePlane", area.plane);
-        window.location.href = "/----------/html/classroom1.html";
-      });
-
-      console.log(area.plane);
       break;
     }
   }
 
-  if (hit) ShowUI();
-  else HideUI();
+  if (!hit) {
+    currentPlane = null;
+    HideUI();
+  }
 }
 
+let currentPlane = null;
+
+button.addEventListener("click", function () {
+        localStorage.setItem("storagePlane", area.plane);
+        window.location.href = "/----------/html/classroom1.html";
+});
 //スマホ用、無駄が多いので書き換える可能性アリ
 
 //後でcssで触れられないように書き換えておく
@@ -264,10 +262,7 @@ library.addEventListener("click", function () {
   smartShowUI();
 });
 
-button.addEventListener("click", function () {
-  localStorage.setItem("storagePlane", title.textContent);
-  window.location.href = "/----------/html/classroom1.html";
-});
+
 
 function ShowUI() {
   console.log("起動しました");
