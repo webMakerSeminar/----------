@@ -14,8 +14,54 @@ const despairImage = {
     ]
 }
 
-const timeImage = document.createElement("img");
-timeImage.id = "timeTiming";
+
+// ===== 設定 =====
+const FULL_ROTATION_TIME = 10 * 60 * 1000; // 10分
+const STORAGE_KEY = "horror_clock_start";
+
+// ===== 開始時刻を取得 or 保存 =====
+let startTime = localStorage.getItem(STORAGE_KEY);
+if (!startTime) {
+  startTime = Date.now();
+  localStorage.setItem(STORAGE_KEY, startTime);
+} else {
+  startTime = Number(startTime);
+}
+
+// ===== 時計DOMを生成 =====
+const clockWrapper = document.createElement("div");
+clockWrapper.className = "horror-clock";
+document.body.appendChild(clockWrapper);
+
+// 時計本体（針なし）
+const clockBase = document.createElement("img");
+clockBase.src = "/----------/horrorImage/針のない時計.png"; // ←針のない時計画像
+clockBase.className = "clock-base";
+clockWrapper.appendChild(clockBase);
+
+// 血の針
+const clockHand = document.createElement("img");
+clockHand.src = "/----------/horrorImage/赤い針真っすぐ.png"; // ←血の針画像
+clockHand.className = "clock-hand";
+clockWrapper.appendChild(clockHand);
+
+// ===== 回転処理 =====
+function rotate() {
+  const now = Date.now();
+  const elapsed = now - startTime;
+
+  const angle =
+    (elapsed % FULL_ROTATION_TIME) / FULL_ROTATION_TIME * 360;
+
+  clockHand.style.transform =
+    `translate(-50%, -100%) rotate(${angle}deg)`;
+
+  requestAnimationFrame(rotate);
+}
+
+rotate();
+
+
 
 
 // ------------------------------

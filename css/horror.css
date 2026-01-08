@@ -1,0 +1,33 @@
+/* 時計全体の土台 */
+.horror-clock {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+
+  /* 右上から少し内側にずらす */
+  transform: translate(-20px, 20px);
+
+  pointer-events: none;
+  z-index: 1000;
+}
+
+
+/* 時計本体（針なし） */
+.horror-clock img.clock-base {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* 血の針 */
+.horror-clock img.clock-hand {
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  left: 50%;
+  top: 55%;
+  transform-origin: 50% 100%; /* 根元 */
+  pointer-events: none;
+}
