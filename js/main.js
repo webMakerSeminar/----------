@@ -326,7 +326,7 @@ function smartShowUI() {
     innerTitle2.textContent = "野菜で音！？"
     innerImage3.src = innerPlane[title.textContent][2];
     innerTitle3.textContent = "美味しく食べました"
-  }else if(title.textContent === "右下の奴"){
+  }else if(title.textContent === "右下の棟"){
     innerImage.src = innerPlane[title.textContent][2];
     innerTitle.textContent = "数学と美！"
     innerImage2.src = innerPlane[title.textContent][1];
