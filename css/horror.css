@@ -31,3 +31,11 @@
   transform-origin: 50% 100%; /* 根元 */
   pointer-events: none;
 }
+@media screen and (max-height:500px) and (orientation: landscape) {
+ .horror-clock {
+        right: auto;
+        top: auto;
+        left: 0;
+        bottom: 0;
+ }
+}
