@@ -164,6 +164,15 @@
     height: 400px;
 }
 }
+@media screen and (max-height:350px) and (orientation: landscape) {
+    #overlay{
+        width: 170%;
+        height: 120%;
+    }
+    #speak{
+        font-size: 1em;
+    }
+}
 /* ======== 高さ300px以下・横向き ======== */
 @media screen and (max-height:350px) and (orientation: landscape) {
 
