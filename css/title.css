@@ -102,6 +102,16 @@
 
 /* ======== 画面幅900px以下 ======== */
 
+@media screen and (max-height:800px) and (orientation: landscape) {
+#titleImage{
+    height: 770px;
+}
+#button{
+    height: 600px;
+    transform: translate(-50%, -50%) translate(-380px, -30px);
+}
+}
+
 @media screen and (max-width:850px) and (orientation: landscape) {
 #speak{
         font-size: 1.17em;
