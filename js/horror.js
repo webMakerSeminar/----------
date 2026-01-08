@@ -1,13 +1,15 @@
 //ここに、ホラー演出を集中させる。
 
 const despairImage = {
-    男:["/----------/speakImage/男違和感弱.png",
+    男:["/----------/speakImage/立ち絵男1.png",
+      "/----------/speakImage/男違和感弱.png",
         "/----------/speakImage/男違和感中.png",
         "/----------/speakImage/男違和感強.png",
         "/----------/speakImage/男首.png",
         "/----------/speakImage/男首白目.png",
     ],
-    女:["/----------/speakImage/女違和感弱.png",
+    女:["/----------/speakImage/立ち絵女2.png",
+      "/----------/speakImage/女違和感弱.png",
         "/----------/speakImage/女違和感中.png",
         "/----------/speakImage/女違和感強.png",
         "/----------/speakImage/女攻撃.png",
