@@ -126,7 +126,6 @@
 @media screen and (max-width:850px) and (orientation: landscape) {
 #speak{
         font-size: 1.17em;
-        top: 120px;
 }
 
 #button{
