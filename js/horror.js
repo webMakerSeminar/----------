@@ -16,7 +16,16 @@ const despairImage = {
     ]
 }
 
-
+const despairTalk = {
+  男1:[""],
+  男2:[""],
+  男3:[""],
+  男4:[""],
+  女1:[""],
+  女2:[""],
+  女3:[""],
+  女4:[""],
+}
 
 
 const SCENE_START_KEY = "horror_scene_start";
@@ -84,12 +93,14 @@ function updateDespairImage() {
         console.log("消去");
     }else{
         standImg.src = images[fixedIndex];
+        appearUI();
     }
   } else {
     if(fixedIndex === 4){
         fixedIndex = 0;
     }else{
         standImg2.src = images[fixedIndex];
+        appearUI();
     }
   }
 }
@@ -114,6 +125,8 @@ function rotate() {
 }
 
 rotate();
+
+
 
 
 
