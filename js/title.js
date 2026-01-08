@@ -38,6 +38,9 @@ const cover = document.getElementById("cover");
 
 direction.addEventListener("click",function(){
     window.location.href = "/----------/html/main.html";
+  localStorage.setItem("horror_clock_start", Date.now());
+sessionStorage.removeItem("horror_scene_start");
+currentImageIndex = -1;
 })
 
 cover.addEventListener("click",function(){
