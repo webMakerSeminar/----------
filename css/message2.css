@@ -78,6 +78,14 @@
 #speak{
     top: 75%;
 }
+#standImg{
+    top: 35%;
+}
+
+#standImg2{
+    top: 35%;
+}
+
 }
 /* ===== スマホ横向き ===== */
 @media screen and (max-height:450px) and (orientation: landscape) {

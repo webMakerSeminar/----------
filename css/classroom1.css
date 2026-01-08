@@ -150,6 +150,11 @@
     }
 }
 
+@media screen and (max-height:450px) and (orientation: landscape) {
+#plane{
+    height: 850px;
+}
+}
 /*以下スマホ用*/
 @media screen and (max-height:450px) and (orientation: landscape) {
     #plane{
