@@ -102,6 +102,13 @@
 
 /* ======== 画面幅900px以下 ======== */
 
+/*多分mac用*/
+@media screen and (max-width:1440px) and (min-height:700px){
+    #titleImage{
+    height: 900px;
+    }
+}
+
 @media screen and (max-height:800px) and (orientation: landscape) {
 #titleImage{
     height: 770px;
