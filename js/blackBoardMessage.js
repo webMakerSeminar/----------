@@ -131,11 +131,11 @@ window.addEventListener("load", function () {
             patternPlane = patternPlane +type;
         }else if(type === "話し合い"){
             patternPlane = patternPlane +type;
-        }else {
+        } 
+    }else{
         patternPlane = "ごめんなさい"
         movie.style.display = "none";
         }
-    }
 
     if (gender === "男") {
         standImg2.style.display = "none";
