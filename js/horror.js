@@ -71,7 +71,7 @@ function updateDespairImage() {
   const elapsed = Date.now() - sceneStartTime;
 
   const index = Math.floor(elapsed / IMAGE_SWITCH_TIME);
-  const fixedIndex = Math.min(index, images.length - 1);
+  let fixedIndex = Math.min(index, images.length - 1);
 
   if (fixedIndex === currentImageIndex) return;
 
