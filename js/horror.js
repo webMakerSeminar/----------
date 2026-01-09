@@ -67,10 +67,10 @@ if (!sceneStartTime) {
 
 
 console.log(gender);
-const IMAGE_SWITCH_TIME = 0.5* 60 * 1000;
+const IMAGE_SWITCH_TIME = 0.1* 60 * 1000;
 let currentImageIndex = -1;
 // ===== 設定 =====
-let FULL_ROTATION_TIME = 0.5 * 60 * 1000; // 10分
+let FULL_ROTATION_TIME = 0.1 * 60 * 1000; // 10分
 const STORAGE_KEY = "horror_clock_start";
 
 // ===== 開始時刻を取得 or 保存 =====
@@ -118,10 +118,12 @@ function updateDespairImage() {
     horrorPattern = gender;
     console.log(horrorPattern);
     if(fixedIndex === 4){
-        standImg.style.display = "none";
-        console.log("消去");
-    }else if(fixedIndex === 4){
-        standImg.scr = images[fixedIndex]
+        flag = 0;
+        standImg.src = images[fixedIndex];
+        horrorPattern = horrorPattern + fixedIndex;
+        console.log(horrorPattern);
+        standImg.style.display = "block";
+        startHorrorTalk(horrorPattern);
     }else{
         console.log(fixedIndex);
         flag = 0;
@@ -134,7 +136,12 @@ function updateDespairImage() {
   } else {
     horrorPattern = gender;
     if(fixedIndex === 4){
-        standImg2.style.display = "none";
+        flag = 0;
+        standImg2.src = images[fixedIndex];
+        horrorPattern = horrorPattern + fixedIndex;
+        console.log(horrorPattern);
+        standImg2.style.display = "block";
+        startHorrorTalk(horrorPattern);
     }else{
         standImg2.src = images[fixedIndex];
         flag = 0;
@@ -162,22 +169,6 @@ function endHorror() {
   skip.style.display = "none";
   localStorage.setItem("system", JSON.stringify(true));
   window.talkMode = "none";
-}
-
-
-function startHorrorTalk(pattern) {
-  window.talkMode = "horror";
-  window.canMove = false;   // ★ 停止
-
-  flag = 0;
-  horrorPattern = pattern;
-
-  message.style.display = "block";
-  speak.textContent = "";
-  speak.style.display = "block";
-  took.style.display = "block";
-
-  if (character) character.style.display = "none";
 }
 
 // ===== 回転処理 =====
@@ -208,6 +199,20 @@ function playSE(src, volume = 0.6) {
 }
 
 
+function startHorrorTalk(pattern) {
+  window.talkMode = "horror";
+  window.canMove = false;   // ★ 停止
+
+  flag = 0;
+  horrorPattern = pattern;
+
+  message.style.display = "block";
+  speak.textContent = "";
+  speak.style.display = "block";
+  took.style.display = "block";
+
+  if (character) character.style.display = "none";
+}
 
 
 // ------------------------------
