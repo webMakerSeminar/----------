@@ -260,8 +260,7 @@ button.addEventListener("click", function () {
       console.log("woman");
       pattern = 4;
     }
-    message.style.display = "block";
-    speak.style.display = "block";
+    tutorial.style.display = "block";
     took.style.display = "block";
     character.style.display = "none";
   }
