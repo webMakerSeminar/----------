@@ -210,7 +210,6 @@ function startHorrorTalk(pattern) {
   message.style.display = "block";
   speak.textContent = "";
   speak.style.display = "block";
-  took.style.display = "block";
 
   if (character) character.style.display = "none";
 }
