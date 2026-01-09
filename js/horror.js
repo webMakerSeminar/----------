@@ -5,8 +5,7 @@ const despairImage = {
       "/----------/speakImage/男違和感弱.png",
         "/----------/speakImage/男違和感中.png",
         "/----------/speakImage/男違和感強.png",
-        "/----------/speakImage/男首.png",
-        "/----------/speakImage/男首白目.png",
+        "/----------/speakImage/狂乱の男.png"
     ],
     女:["/----------/speakImage/立ち絵女2.png",
       "/----------/speakImage/女違和感弱.png",
@@ -118,10 +117,10 @@ function updateDespairImage() {
   if (gender === "男") {
     horrorPattern = gender;
     console.log(horrorPattern);
-    if(fixedIndex === 5){
+    if(fixedIndex === 4){
         standImg.style.display = "none";
         console.log("消去");
-    }else if(fixedIndex === 5){
+    }else if(fixedIndex === 4){
         standImg.scr = images[fixedIndex]
     }else{
         console.log(fixedIndex);
