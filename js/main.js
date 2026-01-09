@@ -252,10 +252,12 @@ button.addEventListener("click", function () {
     if(gender === "男"){
       standImg.style.display = "block";
       flag = 0;
+      console.log("man");
       pattern = 3;
     }else{
       standImg2.style.display = "block";
       flag = 0;
+      console.log("woman");
       pattern = 4;
     }
     message.style.display = "block";
