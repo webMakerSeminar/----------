@@ -93,12 +93,26 @@ function updateDespairImage() {
         console.log("消去");
     }else{
         standImg.src = images[fixedIndex];
+      /*  standImg.style.display = "block";
+        message.style.display = "block";
+        speak.style.textContent = "";
+        speak.style.display = "block";
+        took.style.display = "block";
+        character.style.display = "none";
+        */
     }
   } else {
     if(fixedIndex === 4){
         fixedIndex = 0;
     }else{
         standImg2.src = images[fixedIndex];
+        /*standImg2.style.display = "block";
+        message.style.display = "block";
+        speak.style.textContent = "";
+        speak.style.display = "block";
+        took.style.display = "block";
+        character.style.display = "none";
+        */
     }
   }
 }
@@ -130,6 +144,7 @@ function playSE(src, volume = 0.6) {
   audio.volume = volume;
   audio.play();
 }
+
 
 
 
