@@ -245,6 +245,9 @@ button.addEventListener("click", function () {
       flag = 0;
       pattern = 4;
     }
+    speak.style.display = "block"
+    speed.textContent = "";
+    message.style.display = "block"
     tutorial.style.display = "block";
     took.style.display = "block";
     character.style.display = "none";

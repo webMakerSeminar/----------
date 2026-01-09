@@ -141,7 +141,7 @@ function startHorrorTalk(pattern) {
 
 function horrorTalkNext() {
   const lines = horrorTalk[horrorPattern];
-  if (!lines || flag >= lines.length) {
+  if (!lines || flag > lines.length) {
     endHorror();
     return;
   }

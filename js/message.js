@@ -167,10 +167,10 @@ function normalTalk() {
   speak.textContent = talk[pattern][flag];
   flag++;
 
-  if (flag >= talk[pattern].length) {
+  if (flag > talk[pattern].length) {
     // 会話終了処理
     sessionStorage.setItem("game_state", "explore");
-
+    console.log("終了");
     tutorial.style.display = "none";
     took.style.display = "none";
     message.style.display = "none";
