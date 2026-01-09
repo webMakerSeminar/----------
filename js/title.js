@@ -24,10 +24,10 @@ const woman =document.getElementById("woman")
 const direction = document.getElementById("direction");
 
 const talk = [
-    ["教養ゼミ（１）の世界へようこそ","まずは性別から選んでね","男の子と女の子どっちにする？"],
+    ["教養ゼミ（１）の世界へようこそ","まずは君のパートナーを選ぼう","男の子と女の子どっちにする？"],
     ["男の子を選んだんだね"],
     ["女の子を選んだんだね"],
-    ["それじゃあ行こうか教養ゼミ（１）の世界に"]
+    ["……それじゃあ行こうか教養ゼミ（１）の世界に"]
 ]
 
 sessionStorage.removeItem("tutorialSeen");
