@@ -81,6 +81,9 @@ let direction = null;
 let frame = 0;
 
 window.addEventListener("load", function () {
+    if(standImg.style.display === "none" && standImg2.style.display === "none" ){
+    window.canMove = true;
+  }
   if (gender === "男") {
     character.src = "/----------/img/学生正面.png";
   } else if (gender === "女") {
