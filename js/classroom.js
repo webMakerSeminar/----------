@@ -152,14 +152,14 @@ button3?.addEventListener("click", () => {
     void horrorImage.offsetWidth;
     playSE("/----------/music/びっくりして鳥肌が立つ音.mp3", 0.4);
     horrorImage.classList.add("active");
-    HorrorTalk();
+    HorrorSpeak();
 });
 
 function checkButton() {
     localStorage.setItem("blackBoardPlane", storagePlane);
 }
 
-function HorrorTalk(){
+function HorrorSpeak(){
     appearUI();
     pattern = "ホラートーク" + gender;
     flag = 0;
