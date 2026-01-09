@@ -87,7 +87,15 @@ if (!sessionStorage.getItem("tutorialSeen")) {
 }
 
 window.addEventListener("load",function(){
+  console.log(gender);
+      if(gender === "男"){
+        standImg2.style.display = "none";
+    }else if(gender === "女"){
+        standImg.style.display = "none";
+        pattern++;
+    }
     const state = sessionStorage.getItem("game_state");
+console.log("起動完了");
 
   if (state === "intro") {
     // 最初の会話を優先
@@ -104,15 +112,8 @@ window.addEventListener("load",function(){
   window.talkMode = "normal"
     console.log("消去");
     //スマホ用
-    if(window.innerHeight <= 450){
 
-    }
-    if(gender === "男"){
-        standImg2.style.display = "none";
-    }else if(gender === "女"){
-        standImg.style.display = "none";
-        pattern++;
-    }
+
     if(standImg.style.display === "none" && standImg2.style.display === "none" && window.innerHeight > 500){
         character.style.display = "block";
         console.log("起動");
@@ -148,6 +149,7 @@ skip.addEventListener("click",function(){
     message.style.display ="none";
     skip.style.display = "none";
     character.style.display = "block";
+    window.canMove = true;
     localStorage.setItem("system", JSON.stringify(true));
 })
 
