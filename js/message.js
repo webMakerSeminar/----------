@@ -87,11 +87,11 @@ if (!sessionStorage.getItem("tutorialSeen")) {
 }
 
 window.addEventListener("load",function(){
-  console.log(gender);
-      if(gender === "男"){
-        standImg2.style.display = "none";
+    resetToExploreState();
+    if(gender === "男"){
+        standImg.style.display = "block";
     }else if(gender === "女"){
-        standImg.style.display = "none";
+        standImg2.style.display = "block";
         pattern++;
     }
     const state = sessionStorage.getItem("game_state");
@@ -108,7 +108,7 @@ console.log("起動完了");
   }
 
   // それ以外は探索状態
-  resetToExploreState();
+
   window.talkMode = "normal"
     console.log("消去");
     //スマホ用
@@ -190,12 +190,33 @@ function normalTalk() {
 
 function horrorTalkNext2() {
   const lines = horrorTalk[horrorPattern];
+
+  // ===== 会話完全終了ポイント =====
   if (!lines || flag >= lines.length) {
+
+    // 1回だけ GAME OVER
+
+    if ((horrorPattern === "男4" || horrorPattern === "女4") &&!horrorGameOverTriggered) {
+      horrorGameOverTriggered = true;
+
+      window.canMove = false;
+      window.talkMode = "none";
+      speak.textContent = "";
+
+      // 血文字 → 暗転
+      spawnBloodTexts({ text: "逃げられない", count: 400 });
+
+      setTimeout(() => {
+        showGameOver();
+      }, 1500);
+
+      return; // endHorror() を呼ばせない
+    }
     endHorror();
     character.style.display = "block";
-    return;
   }
 
+  // 通常ホラー会話進行
   speak.textContent = lines[flag];
   flag++;
 }
