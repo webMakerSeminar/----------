@@ -15,7 +15,7 @@ const despairImage = {
     ]
 }
 
-const despairTalk = {
+const horrorTalk = {
   男1:["実は、俺には妹がいたんだ。",
         "いたって言うのはそのままの意味だな。\n結構前に死んじまったんだ。",
         "え？なんで、そんな話をするんだって？",

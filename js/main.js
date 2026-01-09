@@ -92,8 +92,9 @@ window.addEventListener("load", function () {
 });
 
 window.addEventListener("keydown", function (e) {
-  const controller = JSON.parse(localStorage.getItem("system"));
-  if (controller === false) {
+const controller = JSON.parse(localStorage.getItem("system"));
+    if (!window.canMove) return;
+if (controller === false) {
     return;
   }
 
