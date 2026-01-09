@@ -83,6 +83,7 @@ if (!sessionStorage.getItem("tutorialSeen")) {
 window.addEventListener("load",function(){
   window.talkMode = "normal"
     character.style.display = "none"
+    took.style.display = "none";
     //スマホ用
     if(window.innerHeight <= 450){
 
