@@ -160,6 +160,7 @@ function horrorTalkNext() {
   if (flag > horrorTalk[horrorPattern].length) {
     endHorror();
     window.talkMode = "normal";
+    window.canMove = true; 
   }
 }
 

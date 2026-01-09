@@ -126,6 +126,9 @@ skip.addEventListener("click",function(){
         return
     }else{
     character.style.display = "block";
+        if(standImg.style.display === "none" && standImg2.style.display === "none" ){
+    window.canMove = true;
+  }
     }
     localStorage.setItem("system", JSON.stringify(true));
 })
