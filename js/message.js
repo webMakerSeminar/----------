@@ -73,19 +73,36 @@ console.log(talk.length);
 
 if (!sessionStorage.getItem("tutorialSeen")) {
     tutorial.style.display = "block";
+    skip.style.display = "block";
+
     sessionStorage.setItem("tutorialSeen", "true");
+    sessionStorage.setItem("game_state", "intro"); // ← これを追加
 } else {
-    Human();
-    HiddenUI();
+    standImg.style.display = "none";
+    standImg2.style.display = "none";
     tutorial.style.display = "none";
+    //本編でも直しておく
+    HiddenUI();
+    Human();
 }
 
 window.addEventListener("load",function(){
+    const state = sessionStorage.getItem("game_state");
+
+  if (state === "intro") {
+    // 最初の会話を優先
+    window.canMove = false;
+    character.style.display = "none";
+    message.style.display = "block";
+    speak.style.display = "block";
+    took.style.display = "block";
+    return;
+  }
+
+  // それ以外は探索状態
+  resetToExploreState();
   window.talkMode = "normal"
-    character.style.display = "none"
-    if(standImg.style.display === "none" && standImg2.style.display === "none"){
-        took.style.display = "none";
-    }
+    console.log("消去");
     //スマホ用
     if(window.innerHeight <= 450){
 
@@ -98,17 +115,18 @@ window.addEventListener("load",function(){
     }
     if(standImg.style.display === "none" && standImg2.style.display === "none" && window.innerHeight > 500){
         character.style.display = "block";
-        localStorage.setItem("system",JSON.stringify(true));
         console.log("起動");
+        localStorage.setItem("system",JSON.stringify(true));
     }
 })
+
 
 standImg.addEventListener("click",function(){
   if (window.talkMode === "normal") {
     normalTalk();
   }
   else if (window.talkMode === "horror") {
-    horrorTalkNext();
+    horrorTalkNext2();
   }
 });
 
@@ -117,46 +135,67 @@ standImg2.addEventListener("click",function(){
     normalTalk();
   }
   else if (window.talkMode === "horror") {
-    horrorTalkNext();
+    horrorTalkNext2();
   }
 });
 
 skip.addEventListener("click",function(){
-    HiddenUI();
-    Human();
-    if(window.innerHeight < 550){
-        return
-    }else{
+    standImg.style.display = "none";
+    standImg2.style.display = "none";
+    took.style.display = "none";
+    speak.textContent = "";
+    speak.style.display = "none";
+    message.style.display ="none";
+    skip.style.display = "none";
     character.style.display = "block";
-        if(standImg.style.display === "none" && standImg2.style.display === "none" ){
-    window.canMove = true;
-  }
-    }
     localStorage.setItem("system", JSON.stringify(true));
 })
+
 message.addEventListener("click", () => {
+  console.log(window.talkMode);
   if (window.talkMode === "normal") {
+    character.style.display = "none";
     normalTalk();
   }
   else if (window.talkMode === "horror") {
-    horrorTalkNext();
-    if(message.style.display === "none"){
-        character.style.display = "block";
-          window.canMove = true; 
-    }
+    character.style.display = "none";
+    horrorTalkNext2();
   }
 });
 
 function normalTalk() {
-    speak.textContent = "";
   speak.textContent = talk[pattern][flag];
   flag++;
 
-  if (flag > talk[pattern].length) {
+  if (flag >= talk[pattern].length) {
+    // 会話終了処理
+    sessionStorage.setItem("game_state", "explore");
+
+    tutorial.style.display = "none";
+    took.style.display = "none";
+    message.style.display = "none";
+    speak.style.display = "none";
+    standImg.style.display = "none";
+    standImg2.style.display = "none";
+    skip.style.display = "none";
+
+    character.style.display = "block";
+    window.canMove = true;
+
+    flag = 0; // ← 超重要（次の会話のため）
+  }
+}
+
+function horrorTalkNext2() {
+  const lines = horrorTalk[horrorPattern];
+  if (!lines || flag >= lines.length) {
     endHorror();
     character.style.display = "block";
-      window.canMove = true; 
+    return;
   }
+
+  speak.textContent = lines[flag];
+  flag++;
 }
 
 function Human(){
@@ -166,8 +205,21 @@ function Human(){
 //試験2
 function HiddenUI(){
     message.style.display = "none";
-    speak.textContent = "";
     speak.style.display = "none";
-    took.style.display ="none";
-    skip.style.display = "none";
+    took.style.display = "none";
+}
+function resetToExploreState() {
+  character.style.display = "block";
+  standImg.style.display = "none";
+  standImg2.style.display = "none";
+
+  message.style.display = "none";
+  speak.style.display = "none";
+  took.style.display = "none";
+  skip.style.display = "none";
+
+  window.talkMode = "normal";
+  window.canMove = true;
+
+  localStorage.setItem("system", JSON.stringify(true));
 }

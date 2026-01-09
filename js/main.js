@@ -80,19 +80,6 @@ const womanWalkImages = {
 let direction = null;
 let frame = 0;
 
-window.addEventListener("load", function () {
-    if(standImg.style.display === "none" && standImg2.style.display === "none" ){
-    window.canMove = true;
-  }
-  if (gender === "男") {
-    character.src = "/----------/img/学生正面.png";
-  } else if (gender === "女") {
-    character.src = "/----------/walkImage/女の子2.png";
-  }
-  if(window.innerHeight <500){
-    character.style.display = "none";
-  }
-});
 
 window.addEventListener("keydown", function (e) {
 const controller = JSON.parse(localStorage.getItem("system"));
@@ -252,12 +239,10 @@ button.addEventListener("click", function () {
     if(gender === "男"){
       standImg.style.display = "block";
       flag = 0;
-      console.log("man");
       pattern = 3;
     }else{
       standImg2.style.display = "block";
       flag = 0;
-      console.log("woman");
       pattern = 4;
     }
     tutorial.style.display = "block";
@@ -265,6 +250,7 @@ button.addEventListener("click", function () {
     character.style.display = "none";
   }
 });
+
 
 
 

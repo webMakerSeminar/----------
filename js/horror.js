@@ -50,14 +50,9 @@ const horrorTalk = {
   女4:[""],
 }
 
-
-let horrorPattern = "";
-
-const character = document.getElementById("character");
-
 const SCENE_START_KEY = "horror_scene_start";
-
 let sceneStartTime = sessionStorage.getItem(SCENE_START_KEY);
+
 if (!sceneStartTime) {
   sceneStartTime = Date.now();
   sessionStorage.setItem(SCENE_START_KEY, sceneStartTime);
@@ -65,155 +60,120 @@ if (!sceneStartTime) {
   sceneStartTime = Number(sceneStartTime);
 }
 
+const IMAGE_SWITCH_TIME = 0.1 * 60 * 1000; // 6秒
+const FULL_ROTATION_TIME = 0.1 * 60 * 1000;
 
-console.log(gender);
-const IMAGE_SWITCH_TIME = 3* 60 * 1000;
 let currentImageIndex = -1;
-// ===== 設定 =====
-let FULL_ROTATION_TIME = 3* 60 * 1000; // 10分
-const STORAGE_KEY = "horror_clock_start";
+let lastTriggeredIndex = -1;
 
-// ===== 開始時刻を取得 or 保存 =====
-let startTime = localStorage.getItem(STORAGE_KEY);
-if (!startTime) {
-  startTime = Date.now();
-  localStorage.setItem(STORAGE_KEY, startTime);
-} else {
-  startTime = Number(startTime);
-}
+// ==============================
+// 時計生成
+// ==============================
 
-// ===== 時計DOMを生成 =====
 const clockWrapper = document.createElement("div");
 clockWrapper.className = "horror-clock";
 document.body.appendChild(clockWrapper);
 
-// 時計本体（針なし）
 const clockBase = document.createElement("img");
-clockBase.src = "/----------/horrorImage/針のない時計.png"; // ←針のない時計画像
+clockBase.src = "/----------/horrorImage/針のない時計.png";
 clockBase.className = "clock-base";
 clockWrapper.appendChild(clockBase);
 
-// 血の針
 const clockHand = document.createElement("img");
-clockHand.src = "/----------/horrorImage/赤い針真っすぐ.png"; // ←血の針画像
+clockHand.src = "/----------/horrorImage/赤い針真っすぐ.png";
 clockHand.className = "clock-hand";
 clockWrapper.appendChild(clockHand);
 
+// ==============================
+// 絶望画像＆ホラー制御
+// ==============================
 
 function updateDespairImage() {
   const images = despairImage[gender];
   if (!images) return;
 
   const elapsed = Date.now() - sceneStartTime;
-
   const index = Math.floor(elapsed / IMAGE_SWITCH_TIME);
-  let fixedIndex = Math.min(index, images.length - 1);
+  const fixedIndex = Math.min(index, images.length - 1);
 
   if (fixedIndex === currentImageIndex) return;
-
   currentImageIndex = fixedIndex;
 
-  console.log(fixedIndex);
-  if (gender === "男") {
-    horrorPattern = gender;
-    console.log(horrorPattern);
-    if(fixedIndex === 4){
-        flag = 0;
-        standImg.src = images[fixedIndex];
-        horrorPattern = horrorPattern + fixedIndex;
-        console.log(horrorPattern);
-        standImg.style.display = "block";
-        startHorrorTalk(horrorPattern);
-    }else{
-        console.log(fixedIndex);
-        flag = 0;
-        standImg.src = images[fixedIndex];
-        horrorPattern = horrorPattern + fixedIndex;
-        console.log(horrorPattern);
-        standImg.style.display = "block";
-        startHorrorTalk(horrorPattern);
-    }
-  } else {
-    horrorPattern = gender;
-    if(fixedIndex === 4){
-        flag = 0;
-        standImg2.src = images[fixedIndex];
-        horrorPattern = horrorPattern + fixedIndex;
-        console.log(horrorPattern);
-        standImg2.style.display = "block";
-        startHorrorTalk(horrorPattern);
-    }else{
-        standImg2.src = images[fixedIndex];
-        flag = 0;
-        horrorPattern = horrorPattern + fixedIndex;
-        standImg2.style.display = "block";
-    startHorrorTalk(horrorPattern);
+  // 表示更新
+  const img = gender === "男" ? standImg : standImg2;
+  img.src = images[fixedIndex];
+  img.style.display = "block";
 
-    }
+  // 0段階目は通常
+  if (fixedIndex === 0) {
+    window.talkMode = "normal";
+    return;
   }
+
+  // 同じ段階で何度も発火しない
+  if (fixedIndex === lastTriggeredIndex) return;
+  lastTriggeredIndex = fixedIndex;
+
+  const pattern = gender + fixedIndex;
+  startHorrorTalk(pattern);
+}
+
+// ==============================
+// 会話制御
+// ==============================
+
+function startHorrorTalk(pattern) {
+  if (!horrorTalk[pattern]) return;
+
+  window.talkMode = "horror";
+  window.canMove = false;
+
+  horrorPattern = pattern;
+  flag = 0;
+
+  skip.style.display = "block";
+  tutorial.style.display = "block";
+  speak.textContent = ""
+  message.style.display = "block";
+  took.style.display = "block";
+  speak.style.display = "block";
 }
 
 function horrorTalkNext() {
-  speak.textContent = horrorTalk[horrorPattern][flag];
-  flag++;
-
-  if (flag > horrorTalk[horrorPattern].length) {
+  const lines = horrorTalk[horrorPattern];
+  if (!lines || flag >= lines.length) {
     endHorror();
-    window.talkMode = "normal";
-    window.canMove = true; 
+    return;
   }
+
+  speak.textContent = lines[flag];
+  flag++;
 }
 
 function endHorror() {
   HiddenUI();
   Human();
   skip.style.display = "none";
-  localStorage.setItem("system", JSON.stringify(true));
-  window.talkMode = "none";
+  window.talkMode = "normal";
+  window.canMove = true;
 }
 
-// ===== 回転処理 =====
-function rotate() {
-  const now = Date.now();
-  const elapsed = now - startTime;
+// ==============================
+// 時計回転（永久ループ）
+// ==============================
 
-  const angle =
-    (elapsed % FULL_ROTATION_TIME) / FULL_ROTATION_TIME * 360;
+function rotate() {
+  const elapsed = Date.now() - sceneStartTime;
+  const angle = (elapsed % FULL_ROTATION_TIME) / FULL_ROTATION_TIME * 360;
 
   clockHand.style.transform =
     `translate(-50%, -100%) rotate(${angle}deg)`;
 
-    
-  // ★ これを必ず入れる
-  updateDespairImage(elapsed);
-
+  updateDespairImage();
   requestAnimationFrame(rotate);
 }
 
 rotate();
-
-
-function playSE(src, volume = 0.6) {
-  const audio = new Audio(src);
-  audio.volume = volume;
-  audio.play();
-}
-
-
-function startHorrorTalk(pattern) {
-  window.talkMode = "horror";
-  window.canMove = false;   // ★ 停止
-
-  flag = 0;
-  horrorPattern = pattern;
-
-  message.style.display = "block";
-  speak.textContent = "";
-  speak.style.display = "block";
-
-  if (character) character.style.display = "none";
-}
-
 
 // ------------------------------
 // 1. 警告用のHTMLをJSで生成
