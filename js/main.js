@@ -82,11 +82,7 @@ let frame = 0;
 
 
 window.addEventListener("keydown", function (e) {
-const controller = JSON.parse(localStorage.getItem("system"));
     if (!window.canMove) return;
-if (controller === false) {
-    return;
-  }
 
   if ((e.key === "ArrowUp" || e.key === "w" || e.key === "W") && y < 330) {
     y += speed;
