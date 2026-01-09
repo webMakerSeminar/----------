@@ -222,3 +222,5 @@ function checkOrientation() {
 // ------------------------------
 window.addEventListener("resize", checkOrientation);
 window.addEventListener("load", checkOrientation);
+
+function playSE(src, volume = 0.6) { const audio = new Audio(src); audio.volume = volume; audio.play(); }
