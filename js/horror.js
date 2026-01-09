@@ -40,10 +40,10 @@ if (!sceneStartTime) {
 
 
 console.log(gender);
-const IMAGE_SWITCH_TIME = 1* 60 * 1000;
+const IMAGE_SWITCH_TIME = 0.5* 60 * 1000;
 let currentImageIndex = -1;
 // ===== 設定 =====
-let FULL_ROTATION_TIME = 1 * 60 * 1000; // 10分
+let FULL_ROTATION_TIME = 0.5 * 60 * 1000; // 10分
 const STORAGE_KEY = "horror_clock_start";
 
 // ===== 開始時刻を取得 or 保存 =====
