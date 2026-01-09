@@ -17,16 +17,44 @@ const despairImage = {
 }
 
 const despairTalk = {
-  男1:[""],
-  男2:[""],
-  男3:[""],
+  男1:["実は、俺には妹がいたんだ。",
+        "いたって言うのはそのままの意味だな。\n結構前に死んじまったんだ。",
+        "え？なんで、そんな話をするんだって？",
+        "……何となく話したくなったんだ"],
+  男2:["顔色が変だって……？",
+    "そりゃあ、こんなところに閉じ込められてたら\n顔色くらい悪くなってもいいだろ",
+    "なんか、変だって？\n大丈夫だって、それより早く探索しようぜ"
+  ],
+  男3:["ここから脱出する方法なんてあんのかな……？",
+    "ははっ、本当に気が狂ってきたのかもしれないな。",
+    "あ？妹さんの話をしてほしいって……\n聞いてて楽しいもんじゃないぞ",
+    "名前？",
+    "ああ、名前は駒沢 零って言うんだ"
+  ],
   男4:[""],
-  女1:[""],
-  女2:[""],
-  女3:[""],
+  女1:["実はね、私お兄ちゃんがいるの。",
+    "少し前に死んじゃったんだけど……\nすごくかっこいいお兄ちゃんだったんだ",
+    "え？急にどうしてその話をしたのって？",
+    "うーん、何でだろ？\nお兄ちゃんなら諦めないと思ったから、かな？"
+  ],
+  女2:["え、顔色が変？",
+    "そう、かな？私の顔に色なんてついてないと思うんだけど……",
+    "……ああ、気分の話ね。\n確かに、少し悪いかな……でも、大丈夫！",
+    "本当、本当！！\nそれより、早く出口を探そ！"
+  ],
+  女3:["……ははっ！",
+    "うん？何でもないよ。\n笑い出したくなる気分になっただけだから",
+    "私ね、わかっちゃったの。\nここの空間は入るたびに姿が変わる。",
+    "いくら、いくら、いくら、いくら探してもね……",
+    "出口なんて……なかったの"
+  ],
   女4:[""],
 }
 
+
+let horrorPattern = "";
+
+const character = document.getElementById("character");
 
 const SCENE_START_KEY = "horror_scene_start";
 
@@ -88,35 +116,70 @@ function updateDespairImage() {
 
   console.log(fixedIndex);
   if (gender === "男") {
-    if(fixedIndex === 4){
-        fixedIndex = 0;
+    horrorPattern = gender;
+    console.log(horrorPattern);
+    if(fixedIndex === 5){
+        standImg.style.display = "none";
         console.log("消去");
+    }else if(fixedIndex === 5){
+        standImg.scr = images[fixedIndex]
     }else{
+        console.log(fixedIndex);
+        flag = 0;
         standImg.src = images[fixedIndex];
-      /*  standImg.style.display = "block";
-        message.style.display = "block";
-        speak.style.textContent = "";
-        speak.style.display = "block";
-        took.style.display = "block";
-        character.style.display = "none";
-        */
+        horrorPattern = horrorPattern + fixedIndex;
+        console.log(horrorPattern);
+        standImg.style.display = "block";
+        startHorrorTalk(horrorPattern);
     }
   } else {
+    horrorPattern = gender;
     if(fixedIndex === 4){
-        fixedIndex = 0;
+        standImg2.style.display = "none";
     }else{
         standImg2.src = images[fixedIndex];
-        /*standImg2.style.display = "block";
-        message.style.display = "block";
-        speak.style.textContent = "";
-        speak.style.display = "block";
-        took.style.display = "block";
-        character.style.display = "none";
-        */
+        flag = 0;
+        horrorPattern = horrorPattern + fixedIndex;
+        standImg2.style.display = "block";
+    startHorrorTalk(horrorPattern);
+
     }
   }
 }
 
+function horrorTalkNext() {
+  speak.textContent = horrorTalk[horrorPattern][flag];
+  flag++;
+
+  if (flag > horrorTalk[horrorPattern].length) {
+    endHorror();
+    window.talkMode = "normal";
+  }
+}
+
+function endHorror() {
+  HiddenUI();
+  Human();
+  skip.style.display = "none";
+  localStorage.setItem("system", JSON.stringify(true));
+  window.talkMode = "none";
+}
+
+
+function startHorrorTalk(pattern) {
+  window.talkMode = "horror";
+  window.canMove = false;   // ★ 停止
+
+  flag = 0;
+  horrorPattern = pattern;
+
+  message.style.display = "block";
+  speak.textContent = "";
+  speak.style.display = "block";
+  took.style.display = "block";
+
+  if (character) character.style.display = "none";
+}
 
 // ===== 回転処理 =====
 function rotate() {

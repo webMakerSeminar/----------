@@ -18,8 +18,12 @@ const gender = localStorage.getItem("gender");
 
 let type = "";
 
-let patternPlane= "";
 let flag = 0;
+
+
+// どこか1箇所だけ（message.js が適切）
+window.talkMode = "normal";
+// "normal" | "horror" | "none"
 
 const talk = {
     三連棟カボチャ:["これ、カボチャ！？\n野菜で楽器を作ってるってことか",
@@ -115,69 +119,85 @@ const talk = {
 
 
 window.addEventListener("load", function () {
-    flag = 0;
+    window.talkMode = "normal";
     if(blackBoardPlane === "三連棟"){
-        patternPlane = blackBoardPlane;
+        pattern = blackBoardPlane;
         if(type === "カボチャ"){
-            patternPlane = patternPlane + type;
+            pattern = pattern + type;
         }else if (type ==="サトイモ"){
-            patternPlane = patternPlane +type;
+            pattern = pattern +type;
         }else if (type === "料理"){
-            patternPlane = patternPlane + type;
+            pattern = pattern + type;
         }
     }else if(blackBoardPlane === "中央の奴"){
-        patternPlane = blackBoardPlane;
+        pattern = blackBoardPlane;
         if(type === "長編"){
-            patternPlane = patternPlane + type;
+            pattern = pattern + type;
         }else if (type === "マッピング"){
-            patternPlane = patternPlane + type;
+            pattern = pattern + type;
         }else if (type === "カオス"){
-            patternPlane = patternPlane +type;
+            pattern = pattern +type;
         }else if (type === "ムービー"){
-            patternPlane = patternPlane +type ;
+            pattern = pattern +type ;
         }
-    }else if(blackBoardPlane === "右下の棟"){
-        patternPlane = blackBoardPlane;
-        if(type === "銅像"){
-            patternPlane = patternPlane +type;
-        }else if(type === "話し合い"){
-            patternPlane = patternPlane +type;
-        } 
     }else if (blackBoardPlane === "右上の棟"){
-        patternPlane = blackBoardPlane;
+        pattern = blackBoardPlane;
         if(type === "地図"){
-            patternPlane = patternPlane +type;
+            pattern = pattern +type;
         }
-    }else{
-        patternPlane = "ごめんなさい"
+    }else {
+        pattern = "ごめんなさい"
         movie.style.display = "none";
-        }
+    }
 
     if (gender === "男") {
         standImg2.style.display = "none";
     } else if (gender === "女") {
         standImg.style.display = "none";
-        patternPlane = patternPlane + "1";
+        pattern = pattern + "1";
     }
 });
-
 skip.addEventListener("click", function () {
     Human();
     HiddenUI();
 });
 
-standImg.addEventListener("click", nextTalk);
-standImg2.addEventListener("click", nextTalk);
-message.addEventListener("click", nextTalk);
 
-function nextTalk() {
-    speak.textContent = talk[patternPlane][flag];
-    flag++;
-    if(flag === talk[patternPlane].length +1){
-        HiddenUI();
-        Human();
-        skip.style.display = "none";
-    }
+standImg.addEventListener("click",function(){
+  if (window.talkMode === "normal") {
+    normalTalk();
+  }
+  else if (window.talkMode === "horror") {
+    horrorTalkNext();
+  }
+});
+
+standImg2.addEventListener("click",function(){
+  if (window.talkMode === "normal") {
+    normalTalk();
+  }
+  else if (window.talkMode === "horror") {
+    horrorTalkNext();
+  }
+});
+
+message.addEventListener("click", () => {
+  if (window.talkMode === "normal") {
+    normalTalk();
+  }
+  else if (window.talkMode === "horror") {
+    horrorTalkNext();
+  }
+});
+
+function normalTalk() {
+    speak.textContent = "";
+  speak.textContent = talk[pattern][flag];
+  flag++;
+
+  if (flag > talk[pattern].length) {
+    endHorror();
+  }
 }
 
 function Human() {

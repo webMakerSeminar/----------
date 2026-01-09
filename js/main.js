@@ -1,4 +1,4 @@
-const character = document.getElementById("character");
+
 const explainUI = document.getElementById("explainUI");
 const scene = document.getElementById("scene");
 const countX = document.getElementById("countX");

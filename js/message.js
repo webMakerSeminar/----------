@@ -24,6 +24,12 @@ let flag = 0;
 let pattern = 0;
 
 
+// どこか1箇所だけ（message.js が適切）
+window.talkMode = "normal";
+// "normal" | "horror" | "none"
+
+window.canMove = true;
+
 localStorage.setItem("system", JSON.stringify(false));
 
 const talk =[
@@ -75,6 +81,7 @@ if (!sessionStorage.getItem("tutorialSeen")) {
 }
 
 window.addEventListener("load",function(){
+  window.talkMode = "normal"
     character.style.display = "none"
     //スマホ用
     if(window.innerHeight <= 450){
@@ -94,27 +101,23 @@ window.addEventListener("load",function(){
 })
 
 standImg.addEventListener("click",function(){
-    speak.textContent = talk[pattern][flag];
-    flag++;
-    if(flag === talk[pattern].length +1){
-        HiddenUI();
-        Human();
-        skip.style.display = "none";
-        character.style.display = "block";
-        localStorage.setItem("system", JSON.stringify(true));
-    }
-})
+  if (window.talkMode === "normal") {
+    normalTalk();
+  }
+  else if (window.talkMode === "horror") {
+    horrorTalkNext();
+  }
+});
+
 standImg2.addEventListener("click",function(){
-    speak.textContent = talk[pattern][flag];
-    flag++;
-    if(flag === talk[pattern].length +1){
-        HiddenUI();
-        Human();
-        skip.style.display = "none";
-        character.style.display = "block";
-        localStorage.setItem("system", JSON.stringify(true));
-    }
-})
+  if (window.talkMode === "normal") {
+    normalTalk();
+  }
+  else if (window.talkMode === "horror") {
+    horrorTalkNext();
+  }
+});
+
 skip.addEventListener("click",function(){
     HiddenUI();
     Human();
@@ -125,19 +128,30 @@ skip.addEventListener("click",function(){
     }
     localStorage.setItem("system", JSON.stringify(true));
 })
-
-message.addEventListener("click",function(){
-        console.log(flag);
-        speak.textContent = talk[pattern][flag];
-        flag++;
-    if(flag === talk[pattern].length + 1){
-        HiddenUI();
-        Human();
-        skip.style.display = "none";
+message.addEventListener("click", () => {
+  if (window.talkMode === "normal") {
+    normalTalk();
+  }
+  else if (window.talkMode === "horror") {
+    horrorTalkNext();
+    if(message.style.display === "none"){
         character.style.display = "block";
-        localStorage.setItem("system", JSON.stringify(true));
+          window.canMove = true; 
     }
-})
+  }
+});
+
+function normalTalk() {
+    speak.textContent = "";
+  speak.textContent = talk[pattern][flag];
+  flag++;
+
+  if (flag > talk[pattern].length) {
+    endHorror();
+    character.style.display = "block";
+      window.canMove = true; 
+  }
+}
 
 function Human(){
     standImg.style.display = "none";

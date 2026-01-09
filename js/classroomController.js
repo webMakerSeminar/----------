@@ -16,6 +16,9 @@ const skip = document.getElementById("skip");
 
 const gender = localStorage.getItem("gender");
 
+// どこか1箇所だけ（message.js が適切）
+window.talkMode = "normal";
+// "normal" | "horror" | "none"
 
 //会話パート
 
@@ -63,6 +66,7 @@ let talk ={
 console.log(talk.length);
 
 window.addEventListener("load",function(){
+        window.talkMode = "normal";
     if(storagePlane === "三連棟"){
         pattern = "三連棟";
         if(time === "朝"){
@@ -105,22 +109,20 @@ window.addEventListener("load",function(){
 })
 
 standImg.addEventListener("click",function(){
-    speak.textContent = talk[pattern][flag];
-    flag++;
-    if(flag === talk[pattern].length +1){
-        HiddenUI();
-        Human();
-        localStorage.setItem("system", JSON.stringify(true));
-    }
+  if (window.talkMode === "normal") {
+    normalTalk();
+  }
+  else if (window.talkMode === "horror") {
+    horrorTalkNext();
+  }
 })
 standImg2.addEventListener("click",function(){
-    speak.textContent = talk[pattern][flag];
-    flag++;
-    if(flag === talk[pattern].length +1){
-        HiddenUI();
-        Human();
-        localStorage.setItem("system", JSON.stringify(true));
-    }
+  if (window.talkMode === "normal") {
+    normalTalk();
+  }
+  else if (window.talkMode === "horror") {
+    horrorTalkNext();
+  }
 })
 skip.addEventListener("click",function(){
     HiddenUI();
@@ -128,15 +130,14 @@ skip.addEventListener("click",function(){
     localStorage.setItem("system", JSON.stringify(true));
 })
 
+
 message.addEventListener("click",function(){
-        console.log(flag);
-        speak.textContent = talk[pattern][flag];
-        flag++;
-    if(flag === talk[pattern].length + 1){
-        HiddenUI();
-        Human();
-        localStorage.setItem("system", JSON.stringify(true));
-    }
+  if (window.talkMode === "normal") {
+    normalTalk();
+  }
+  else if (window.talkMode === "horror") {
+    horrorTalkNext();
+  }
 })
 
 function dark(){
@@ -152,6 +153,17 @@ function clock(){
         }else if(time === "夜"){
             pattern = pattern + time;
         }
+}
+
+
+function normalTalk() {
+    speak.textContent = "";
+  speak.textContent = talk[pattern][flag];
+  flag++;
+
+  if (flag > talk[pattern].length) {
+    endHorror();
+  }
 }
 
 function Human(){
