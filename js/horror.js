@@ -69,8 +69,8 @@ if (!sceneStartTime) {
   sceneStartTime = Number(sceneStartTime);
 }
 
-const IMAGE_SWITCH_TIME = 1 * 60 * 1000; // 6秒
-const FULL_ROTATION_TIME = 1 * 60 * 1000;
+const IMAGE_SWITCH_TIME = 5 * 60 * 1000; 
+const FULL_ROTATION_TIME = 3 * 60 * 1000;
 
 let currentImageIndex = -1;
 let lastTriggeredIndex = -1;
